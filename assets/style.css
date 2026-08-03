@@ -330,11 +330,11 @@ header {
 
 /* Connected Social Logos in Header & Elsewhere */
 .social-icon-btn {
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--border-glass);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-glass-bright);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -347,8 +347,8 @@ header {
 }
 
 .social-icon-btn svg {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   fill: currentColor;
   transition: transform var(--transition-bounce);
 }
@@ -363,26 +363,50 @@ header {
 }
 
 .social-icon-btn:hover {
-  transform: translateY(-4px) scale(1.1);
+  transform: translateY(-4px) scale(1.15);
   border-color: var(--cyan);
   color: var(--cyan);
-  box-shadow: 0 0 20px var(--cyan-glow);
+  box-shadow: 0 0 25px var(--cyan);
 }
 
 .social-icon-btn.linkedin-btn:hover {
   border-color: #0077b5;
   color: #0077b5;
-  box-shadow: 0 0 20px rgba(0, 119, 181, 0.4);
+  box-shadow: 0 0 25px rgba(0, 119, 181, 0.6);
 }
 
 .social-icon-btn.github-btn:hover {
   border-color: #fff;
   color: #fff;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
 }
 
 .social-icon-btn:hover svg {
   transform: scale(1.15);
+}
+
+/* Resume Cyber Button */
+.btn-resume-cyber {
+  background: rgba(157, 0, 255, 0.15);
+  border: 1px solid var(--purple);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  padding: 10px 20px;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all var(--transition-bounce);
+  cursor: pointer;
+}
+
+.btn-resume-cyber:hover {
+  background: var(--purple);
+  color: #fff;
+  box-shadow: 0 0 25px var(--purple-glow);
+  transform: translateY(-3px);
 }
 
 /* Utility Header Button */
