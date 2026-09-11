@@ -1,610 +1,631 @@
 /* ==========================================================================
-   SARAVAN PRASANNA - PORTFOLIO INTERACTIVE SCRIPT (app.js)
+   SARAVAN PRASANNA - FUTURISTIC LIGHT PORTFOLIO (app.js)
+   Visual Identity: Soft-Futuristic Daylight Architecture
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initPreloader();
-  initThreeJS();
-  initTypewriter();
+  // Initialize Lucide Icons
+  if (window.lucide) {
+    window.lucide.createIcons();
+  }
+
+  // Cursor initialized to standard browser cursor
+  initThreeJSSphere();
+  initScrollSpyAndNavbar();
+  initIntersectionReveals();
+  initProjectFilters();
   initAudioSynth();
-  initCustomCursor();
-  initTerminal();
-  initSkillBarsAndFilters();
-  initProjectSimulators();
-  initModals();
-  initSmoothScroll();
+  initModalSystem();
 });
 
 /* --------------------------------------------------------------------------
-   1. Preloader Boot Sequence
+   1. THREE.JS DAYLIGHT CHROMATIC GLASS SPHERE
    -------------------------------------------------------------------------- */
-function initPreloader() {
-  const preloader = document.getElementById('preloader');
-  const barFill = document.querySelector('.loader-bar-fill');
-  const statusText = document.querySelector('.loader-status');
-  const percentText = document.querySelector('.loader-percentage');
-
-  const bootLogs = [
-    "INITIALIZING_SARAVAN_OS_v2.0...",
-    "LOADING_THREE_JS_NEURAL_MATRIX...",
-    "CALIBRATING_OPENCV_CNN_PIPELINE...",
-    "ESTABLISHING_ESP32_I2S_COMMUNICATION...",
-    "SYNCHRONIZING_GROQ_LLAMA3_API...",
-    "SYSTEM_READY_OPEN_FOR_INTERNSHIPS"
-  ];
-
-  let progress = 0;
-  let logIndex = 0;
-
-  const interval = setInterval(() => {
-    progress += Math.floor(Math.random() * 12) + 5;
-    if (progress > 100) progress = 100;
-
-    barFill.style.width = `${progress}%`;
-    percentText.textContent = `${progress}%`;
-
-    if (logIndex < bootLogs.length && progress > (logIndex + 1) * 15) {
-      statusText.textContent = bootLogs[logIndex];
-      logIndex++;
-    }
-
-    if (progress === 100) {
-      clearInterval(interval);
-      setTimeout(() => {
-        preloader.style.opacity = '0';
-        preloader.style.visibility = 'hidden';
-        triggerInitialAnimations();
-      }, 400);
-    }
-  }, 90);
-}
-
-function triggerInitialAnimations() {
-  // Animate skill bars in view
-  const skillFills = document.querySelectorAll('.skill-level-fill');
-  skillFills.forEach(fill => {
-    const targetWidth = fill.getAttribute('data-width') || '85%';
-    fill.style.width = targetWidth;
-  });
-}
 
 /* --------------------------------------------------------------------------
-   2. Three.js Interactive Neural Core Background
+   2. THREE.JS DAYLIGHT CHROMATIC GLASS SPHERE
    -------------------------------------------------------------------------- */
-let scene, camera, renderer, neuralMesh, particlesMesh;
-let mouseX = 0, mouseY = 0;
+let scene, camera, renderer, sphereMesh, innerCoreMesh, particles;
+let mouseSphereX = 0, mouseSphereY = 0;
+let targetRotX = 0, targetRotY = 0;
+let isDragging = false, prevMouseX = 0, prevMouseY = 0;
 
-function initThreeJS() {
-  const canvasContainer = document.getElementById('three-bg');
-  if (!canvasContainer || typeof THREE === 'undefined') return;
+function initThreeJSSphere() {
+  const container = document.getElementById('three-container');
+  if (!container || typeof THREE === 'undefined') return;
 
+  const width = container.clientWidth || 480;
+  const height = container.clientHeight || 480;
+
+  // Scene & Camera
   scene = new THREE.Scene();
-  camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-  camera.position.z = 30;
+  camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+  camera.position.z = 5.5;
 
-  renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-  renderer.setSize(window.innerWidth, window.innerHeight);
+  // Renderer with transparent canvas
+  renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: 'high-performance' });
+  renderer.setSize(width, height);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-  canvasContainer.appendChild(renderer.domElement);
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.1;
+  container.appendChild(renderer.domElement);
 
-  // Create 3D Wireframe Icosahedron (AI Neural Core)
-  const geometry = new THREE.IcosahedronGeometry(12, 2);
-  const material = new THREE.MeshBasicMaterial({
-    color: 0x00f3ff,
-    wireframe: true,
+  // Soft Ambient & Directional Lights
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.9);
+  scene.add(ambientLight);
+
+  const keyLight = new THREE.DirectionalLight(0x8B5CF6, 2.2); // Lavender
+  keyLight.position.set(5, 5, 4);
+  scene.add(keyLight);
+
+  const fillLight = new THREE.DirectionalLight(0x38BDF8, 2.0); // Powder Blue
+  fillLight.position.set(-5, -3, 3);
+  scene.add(fillLight);
+
+  const rimLight = new THREE.PointLight(0xEC4899, 2.5, 10); // Iridescent pink
+  rimLight.position.set(0, 4, -2);
+  scene.add(rimLight);
+
+  // 1. Outer Chromatic Orbital Ring framing the portrait
+  const ringGeo = new THREE.TorusGeometry(2.2, 0.035, 16, 100);
+  const ringMat = new THREE.MeshStandardMaterial({
+    color: 0x8B5CF6,
+    roughness: 0.2,
+    metalness: 0.8,
     transparent: true,
-    opacity: 0.25
+    opacity: 0.65
   });
-  neuralMesh = new THREE.Mesh(geometry, material);
-  scene.add(neuralMesh);
+  sphereMesh = new THREE.Mesh(ringGeo, ringMat);
+  sphereMesh.rotation.x = Math.PI / 4;
+  scene.add(sphereMesh);
 
-  // Add Particle Network Cloud
-  const particlesCount = 400;
-  const positions = new Float32Array(particlesCount * 3);
-  const colors = new Float32Array(particlesCount * 3);
+  // 2. Second Counter-Rotating Cyan Ring
+  const ringGeo2 = new THREE.TorusGeometry(2.38, 0.02, 16, 100);
+  const ringMat2 = new THREE.MeshStandardMaterial({
+    color: 0x38BDF8,
+    roughness: 0.3,
+    metalness: 0.9,
+    transparent: true,
+    opacity: 0.55
+  });
+  innerCoreMesh = new THREE.Mesh(ringGeo2, ringMat2);
+  innerCoreMesh.rotation.x = -Math.PI / 3;
+  scene.add(innerCoreMesh);
 
-  const color1 = new THREE.Color(0x00f3ff);
-  const color2 = new THREE.Color(0x9d00ff);
+  // 3. Floating Ethereal Particle Swarm
+  const partCount = 80;
+  const partGeo = new THREE.BufferGeometry();
+  const positions = new Float32Array(partCount * 3);
+  const colors = new Float32Array(partCount * 3);
 
-  for (let i = 0; i < particlesCount * 3; i += 3) {
-    positions[i] = (Math.random() - 0.5) * 120;
-    positions[i + 1] = (Math.random() - 0.5) * 120;
-    positions[i + 2] = (Math.random() - 0.5) * 120;
+  const col1 = new THREE.Color(0x8B5CF6);
+  const col2 = new THREE.Color(0x38BDF8);
 
-    const mixedColor = Math.random() > 0.5 ? color1 : color2;
-    colors[i] = mixedColor.r;
-    colors[i + 1] = mixedColor.g;
-    colors[i + 2] = mixedColor.b;
+  for (let i = 0; i < partCount * 3; i += 3) {
+    const r = 2.2 + Math.random() * 1.5;
+    const theta = Math.random() * Math.PI * 2;
+    const phi = Math.acos((Math.random() * 2) - 1);
+
+    positions[i] = r * Math.sin(phi) * Math.cos(theta);
+    positions[i + 1] = r * Math.sin(phi) * Math.sin(theta);
+    positions[i + 2] = r * Math.cos(phi);
+
+    const mixed = col1.clone().lerp(col2, Math.random());
+    colors[i] = mixed.r;
+    colors[i + 1] = mixed.g;
+    colors[i + 2] = mixed.b;
   }
 
-  const particlesGeo = new THREE.BufferGeometry();
-  particlesGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-  particlesGeo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+  partGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+  partGeo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
-  const particlesMat = new THREE.PointsMaterial({
-    size: 1.2,
+  const partMat = new THREE.PointsMaterial({
+    size: 0.045,
     vertexColors: true,
     transparent: true,
-    opacity: 0.7
+    opacity: 0.75
+  });
+  particles = new THREE.Points(partGeo, partMat);
+  scene.add(particles);
+
+  // Mouse Parallax & Drag Handlers
+  window.addEventListener('mousemove', (e) => {
+    mouseSphereX = (e.clientX / window.innerWidth - 0.5) * 2;
+    mouseSphereY = -(e.clientY / window.innerHeight - 0.5) * 2;
   });
 
-  particlesMesh = new THREE.Points(particlesGeo, particlesMat);
-  scene.add(particlesMesh);
-
-  // Mouse Listener
-  document.addEventListener('mousemove', (e) => {
-    mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
-    mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+  container.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    prevMouseX = e.clientX;
+    prevMouseY = e.clientY;
+    container.style.cursor = 'grabbing';
   });
 
-  // Window Resize
+  window.addEventListener('mouseup', () => {
+    isDragging = false;
+    if (container) container.style.cursor = 'grab';
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    const deltaX = e.clientX - prevMouseX;
+    const deltaY = e.clientY - prevMouseY;
+    targetRotY += deltaX * 0.008;
+    targetRotX += deltaY * 0.008;
+    prevMouseX = e.clientX;
+    prevMouseY = e.clientY;
+  });
+
+  // Resize Listener
   window.addEventListener('resize', () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
+    if (!container) return;
+    const newW = container.clientWidth;
+    const newH = container.clientHeight;
+    camera.aspect = newW / newH;
     camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(newW, newH);
   });
 
-  animateThreeJS();
-}
+  // Animation Loop
+  let clock = new THREE.Clock();
 
-function animateThreeJS() {
-  requestAnimationFrame(animateThreeJS);
+  function animate() {
+    requestAnimationFrame(animate);
+    const elapsedTime = clock.getElapsedTime();
 
-  if (neuralMesh) {
-    neuralMesh.rotation.x += 0.003;
-    neuralMesh.rotation.y += 0.005;
-    
-    // Smooth lerp interaction
-    neuralMesh.rotation.y += mouseX * 0.01;
-    neuralMesh.rotation.x += mouseY * 0.01;
+    // Constant subtle rotation
+    sphereMesh.rotation.y += 0.004;
+    sphereMesh.rotation.x += 0.002;
+    innerCoreMesh.rotation.y -= 0.007;
+    innerCoreMesh.rotation.z += 0.003;
+    particles.rotation.y += 0.0015;
+
+    // Mouse parallax lerp
+    sphereMesh.rotation.y += (targetRotY + mouseSphereX * 0.35 - sphereMesh.rotation.y) * 0.05;
+    sphereMesh.rotation.x += (targetRotX - mouseSphereY * 0.35 - sphereMesh.rotation.x) * 0.05;
+
+    // Gentle float wobble
+    sphereMesh.position.y = Math.sin(elapsedTime * 1.2) * 0.1;
+    innerCoreMesh.position.y = Math.sin(elapsedTime * 1.2) * 0.1;
+
+    renderer.render(scene, camera);
   }
-
-  if (particlesMesh) {
-    particlesMesh.rotation.y -= 0.001;
-  }
-
-  renderer.render(scene, camera);
+  animate();
 }
 
 /* --------------------------------------------------------------------------
-   3. Typewriter Effect for Hero Title
+   3. SCROLL SPY & NAVBAR BLUR STATE
    -------------------------------------------------------------------------- */
-function initTypewriter() {
-  const target = document.getElementById('typing-target');
-  if (!target) return;
+function initScrollSpyAndNavbar() {
+  const navbar = document.querySelector('.nav-glass-container');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const sections = document.querySelectorAll('section');
 
-  const phrases = [
-    "AI & Autonomous Systems Engineer",
-    "Embedded AI Robotics Specialist (ESP32, C++)",
-    "Computer Vision & Deep Learning Creator",
-    "Full-Stack Web & ML Developer (Python, Flask, JS)"
-  ];
+  window.addEventListener('scroll', () => {
+    const scrollPos = window.scrollY;
 
-  let phraseIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
-
-  function type() {
-    const currentPhrase = phrases[phraseIndex];
-
-    if (isDeleting) {
-      target.textContent = currentPhrase.substring(0, charIndex - 1);
-      charIndex--;
-    } else {
-      target.textContent = currentPhrase.substring(0, charIndex + 1);
-      charIndex++;
+    // Navbar scrolled shadow elevation
+    if (navbar) {
+      if (scrollPos > 40) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
     }
 
-    let speed = isDeleting ? 40 : 80;
+    // Active link highlighting
+    sections.forEach(sec => {
+      const top = sec.offsetTop - 160;
+      const height = sec.offsetHeight;
+      const id = sec.getAttribute('id');
 
-    if (!isDeleting && charIndex === currentPhrase.length) {
-      speed = 2200; // Pause at end of phrase
-      isDeleting = true;
-    } else if (isDeleting && charIndex === 0) {
-      isDeleting = false;
-      phraseIndex = (phraseIndex + 1) % phrases.length;
-      speed = 400;
-    }
-
-    setTimeout(type, speed);
-  }
-
-  type();
-}
-
-/* --------------------------------------------------------------------------
-   4. Audio Synth (Web Audio API for UI clicks)
-   -------------------------------------------------------------------------- */
-let audioCtx = null;
-let soundEnabled = true;
-
-function initAudioSynth() {
-  const toggleBtn = document.getElementById('sound-toggle');
-  if (toggleBtn) {
-    toggleBtn.addEventListener('click', () => {
-      soundEnabled = !soundEnabled;
-      toggleBtn.innerHTML = soundEnabled 
-        ? `<i class="lucide-volume-2"></i> SOUND: ON` 
-        : `<i class="lucide-volume-x"></i> SOUND: OFF`;
-      toggleBtn.style.color = soundEnabled ? 'var(--cyan)' : 'var(--text-muted)';
-    });
-  }
-
-  // Attach sound triggers to interactive buttons
-  document.querySelectorAll('a, button, .social-icon-btn, .project-card, .filter-btn').forEach(elem => {
-    elem.addEventListener('mouseenter', () => playSound(800, 0.03, 'sine'));
-    elem.addEventListener('click', () => playSound(1200, 0.08, 'triangle'));
-  });
-}
-
-function playSound(freq, duration, type = 'sine') {
-  if (!soundEnabled) return;
-  try {
-    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    if (audioCtx.state === 'suspended') audioCtx.resume();
-
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
-
-    osc.type = type;
-    osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-    gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
-
-    osc.connect(gain);
-    gain.connect(audioCtx.destination);
-
-    osc.start();
-    osc.stop(audioCtx.currentTime + duration);
-  } catch (e) {
-    // Ignore audio restrictions
-  }
-}
-
-/* --------------------------------------------------------------------------
-   5. Custom Particle Cursor
-   -------------------------------------------------------------------------- */
-function initCustomCursor() {
-  const dot = document.querySelector('.cursor-dot');
-  const circle = document.querySelector('.cursor-circle');
-  if (!dot || !circle) return;
-
-  let circleX = 0, circleY = 0;
-  let mousePosX = 0, mousePosY = 0;
-
-  document.addEventListener('mousemove', (e) => {
-    mousePosX = e.clientX;
-    mousePosY = e.clientY;
-    dot.style.left = `${mousePosX}px`;
-    dot.style.top = `${mousePosY}px`;
-  });
-
-  function updateCircle() {
-    circleX += (mousePosX - circleX) * 0.15;
-    circleY += (mousePosY - circleY) * 0.15;
-    circle.style.left = `${circleX}px`;
-    circle.style.top = `${circleY}px`;
-    requestAnimationFrame(updateCircle);
-  }
-  updateCircle();
-}
-
-/* --------------------------------------------------------------------------
-   6. Interactive AI Terminal (SP-OS v2.0)
-   -------------------------------------------------------------------------- */
-function initTerminal() {
-  const drawer = document.getElementById('terminal-drawer');
-  const openBtns = document.querySelectorAll('.open-terminal-btn');
-  const closeBtn = document.querySelector('.terminal-close');
-  const input = document.getElementById('terminal-input');
-  const output = document.querySelector('.terminal-body');
-  const chipBtns = document.querySelectorAll('.chip-btn');
-
-  if (!drawer || !input || !output) return;
-
-  openBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      drawer.classList.add('open');
-      input.focus();
-    });
-  });
-
-  if (closeBtn) {
-    closeBtn.addEventListener('click', () => drawer.classList.remove('open'));
-  }
-
-  // Handle Preset Chips
-  chipBtns.forEach(chip => {
-    chip.addEventListener('click', () => {
-      const cmd = chip.getAttribute('data-cmd');
-      if (cmd) {
-        input.value = cmd;
-        processCommand(cmd);
+      if (scrollPos >= top && scrollPos < top + height) {
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + id) {
+            link.classList.add('active');
+          }
+        });
       }
     });
   });
-
-  input.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-      const cmd = input.value.trim();
-      if (cmd) {
-        processCommand(cmd);
-        input.value = '';
-      }
-    }
-  });
-
-  function processCommand(cmd) {
-    appendOutput(`\n<span style="color: var(--cyan)">guest@saravan-os:~$</span> ${escapeHTML(cmd)}`);
-
-    const lower = cmd.toLowerCase();
-
-    if (lower === 'help') {
-      appendOutput(`
-Available Commands:
-  <span style="color:var(--cyan)">whoami</span>     : Summary profile of Saravan Prasanna
-  <span style="color:var(--cyan)">skills</span>     : Technical stack & competencies
-  <span style="color:var(--cyan)">projects</span>   : Major AI & Full-Stack projects
-  <span style="color:var(--cyan)">awards</span>     : Hackathon wins & achievements
-  <span style="color:var(--cyan)">contact</span>    : Phone, Email, Location & Social Links
-  <span style="color:var(--cyan)">github</span>     : Open GitHub portfolio profile directly
-  <span style="color:var(--cyan)">linkedin</span>   : Open LinkedIn profile directly
-  <span style="color:var(--cyan)">matrix</span>     : Rain animation mode
-  <span style="color:var(--cyan)">clear</span>      : Clear terminal screen
-      `);
-    } else if (lower === 'whoami') {
-      appendOutput(`
-SARAVAN PRASANNA - AI Engineer & Tech Lead
-Education : B.Tech AI & Data Science (2025 - 2029) at V S B College of Engineering
-Status    : Fresher 2nd Year | Open to Internships
-Focus     : Embedded AI Robotics (ESP32), Computer Vision (OpenCV, CNN), Full-Stack Web (Flask, Three.js)
-      `);
-    } else if (lower === 'skills') {
-      appendOutput(`
-Languages  : C++, Python, JavaScript, HTML, CSS, SQL
-AI / CV    : OpenCV, Haar Cascade, LBPH, CNN, FER2013, Meta Llama 3.3 70B, Groq API, CLAHE
-Embedded   : ESP32, I2S MEMS Mic, Class-D Amplifier, OLED Interface, Digital Signal Processing
-Web & DB   : Flask, Three.js, Chart.js, SQLite, REST APIs
-      `);
-    } else if (lower === 'projects') {
-      appendOutput(`
-1. <span style="color:#fff; font-weight:bold">AI-Powered Voice Assistant Robot</span> (ESP32, Flask, Groq Llama 3.3, Tavily, I2S Audio, OLED)
-2. <span style="color:#fff; font-weight:bold">LearnPath — Adaptive Learning Platform</span> (Python, Flask, SQLite, Judge0 API, Chart.js)
-3. <span style="color:#fff; font-weight:bold">Smart Attendance & Emotion Analytics</span> (OpenCV, LBPH, CNN FER2013, 94.7% Precision, 20.5 FPS)
-4. <span style="color:#fff; font-weight:bold">Glassmorphic Educational Platform</span> (HTML5, CSS3, JS)
-      `);
-    } else if (lower === 'awards') {
-      appendOutput(`
-🏆 1st Place - Ideathon Winner (Inter-Collegiate Fest)
-🥈 3rd Place - Code Debugging Challenge
-🎨 3rd Place - Web Design Competition (GIT Institution, Kottayam)
-⚡ Innovation Catalyst - Intra College Project Contest
-⚙️ Sparkathon 6-Hour IoT Hackathon Participant
-      `);
-    } else if (lower === 'contact') {
-      appendOutput(`
-Phone    : +91 80152 81343
-Email    : saravanprasanna.10@gmail.com
-Location : Gandhi Maanagar, Peelamedu, Coimbatore
-LinkedIn : https://www.linkedin.com/in/saravan-prasanna-k-u-a9b0723b2/
-GitHub   : https://github.com/wamender007-sara
-      `);
-    } else if (lower === 'github') {
-      appendOutput(`Opening GitHub...`);
-      window.open('https://github.com/wamender007-sara', '_blank');
-    } else if (lower === 'linkedin') {
-      appendOutput(`Opening LinkedIn...`);
-      window.open('https://www.linkedin.com/in/saravan-prasanna-k-u-a9b0723b2/', '_blank');
-    } else if (lower === 'clear') {
-      output.innerHTML = '';
-    } else if (lower === 'matrix') {
-      appendOutput(`\n[ACTIVATING NEURAL MATRIX STREAM]\n01010011 01000001 01010010 01000001 01010110 01000001 01001110 00100000 01010000 01010010 01000001 01010011 01000001 01001110 01001110 01000001`);
-    } else {
-      appendOutput(`Command not recognized: '${escapeHTML(cmd)}'. Type '<span style="color:var(--cyan)">help</span>' for options.`);
-    }
-
-    output.scrollTop = output.scrollHeight;
-  }
-
-  function appendOutput(htmlText) {
-    const div = document.createElement('div');
-    div.innerHTML = htmlText;
-    output.appendChild(div);
-  }
-
-  function escapeHTML(str) {
-    return str.replace(/[&<>'"]/g, 
-      tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
-    );
-  }
 }
 
 /* --------------------------------------------------------------------------
-   7. Skill Filtering & Category Animation
+   4. INTERSECTION OBSERVER REVEALS & SKILL FILL ANIMATION
    -------------------------------------------------------------------------- */
-function initSkillBarsAndFilters() {
-  const filterBtns = document.querySelectorAll('.skills-filter .filter-btn');
-  const skillCards = document.querySelectorAll('.skills-grid .skill-card');
+function initIntersectionReveals() {
+  const revealElements = document.querySelectorAll('.reveal-on-scroll');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+
+        // Animate skill bars if within the skills card
+        const skillFills = entry.target.querySelectorAll('.skill-fill');
+        skillFills.forEach(fill => {
+          const width = fill.getAttribute('data-width') || '85%';
+          fill.style.width = width;
+        });
+
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  revealElements.forEach(el => observer.observe(el));
+}
+
+/* --------------------------------------------------------------------------
+   5. PROJECT CATEGORY FILTERING
+   -------------------------------------------------------------------------- */
+function initProjectFilters() {
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
-      const cat = btn.getAttribute('data-filter');
-
-      skillCards.forEach(card => {
-        if (cat === 'all' || card.getAttribute('data-cat') === cat) {
-          card.style.display = 'block';
-          card.style.opacity = '1';
+      const filter = btn.getAttribute('data-filter');
+      projectCards.forEach(card => {
+        const cat = card.getAttribute('data-category');
+        if (filter === 'all' || cat === filter) {
+          card.style.display = 'flex';
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, 40);
         } else {
-          card.style.display = 'none';
           card.style.opacity = '0';
+          card.style.transform = 'scale(0.95)';
+          setTimeout(() => {
+            card.style.display = 'none';
+          }, 300);
         }
       });
+      playSoftChime(520);
     });
   });
 }
 
 /* --------------------------------------------------------------------------
-   8. Interactive Project Simulators (Waveform, Compiler, Emotion)
+   6. AMBIENT AUDIO SYNTH (SOFT FUTURISTIC CHIME)
    -------------------------------------------------------------------------- */
-function initProjectSimulators() {
-  // Waveform Visualizer for Voice Assistant Robot
-  const waveCanvas = document.getElementById('voice-waveform');
-  if (waveCanvas) {
-    const ctx = waveCanvas.getContext('2d');
-    let phase = 0;
+let audioCtx = null;
+let soundEnabled = true;
 
-    function renderWave() {
-      ctx.clearRect(0, 0, waveCanvas.width, waveCanvas.height);
-      ctx.beginPath();
-      ctx.lineWidth = 2;
-      ctx.strokeStyle = '#00f3ff';
+function initAudioSynth() {
+  const toggleBtn = document.getElementById('sound-toggle');
+  if (!toggleBtn) return;
 
-      for (let x = 0; x < waveCanvas.width; x++) {
-        const y = Math.sin(x * 0.05 + phase) * 15 + waveCanvas.height / 2;
-        if (x === 0) ctx.moveTo(x, y);
-        else ctx.lineTo(x, y);
-      }
-      ctx.stroke();
-      phase += 0.1;
-      requestAnimationFrame(renderWave);
-    }
-    renderWave();
-  }
+  toggleBtn.addEventListener('click', () => {
+    soundEnabled = !soundEnabled;
+    toggleBtn.innerHTML = soundEnabled 
+      ? '<i data-lucide="volume-2" style="width:14px;height:14px;"></i><span>AUDIO: ON</span>' 
+      : '<i data-lucide="volume-x" style="width:14px;height:14px;"></i><span>AUDIO: OFF</span>';
+    if (window.lucide) window.lucide.createIcons();
+    if (soundEnabled) playSoftChime(660);
+  });
+}
 
-  // Compiler Simulator for LearnPath
-  const runCodeBtn = document.getElementById('run-code-sim');
-  const compilerOutput = document.getElementById('compiler-out');
-  if (runCodeBtn && compilerOutput) {
-    runCodeBtn.addEventListener('click', () => {
-      compilerOutput.textContent = "Compiling Python script...";
-      setTimeout(() => {
-        compilerOutput.innerHTML = `<span style="color:var(--green)">[PASS] Test Case 1: OK</span>\n<span style="color:var(--green)">[PASS] Test Case 2: Output matching expected [1, 2, 3]</span>\nExecution time: 0.04s`;
-      }, 700);
-    });
-  }
+function playSoftChime(freq = 523.25) {
+  if (!soundEnabled) return;
+  try {
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContext) return;
+    if (!audioCtx) audioCtx = new AudioContext();
+    if (audioCtx.state === 'suspended') audioCtx.resume();
 
-  // Emotion Analytics Simulator
-  const simEmotionBtn = document.getElementById('sim-emotion-btn');
-  const emotionBadge = document.getElementById('sim-emotion-badge');
-  const emotionScore = document.getElementById('sim-emotion-score');
-  
-  if (simEmotionBtn && emotionBadge && emotionScore) {
-    const emotions = [
-      { name: "HAPPY 😊", score: "94.2%", color: "#00ff66" },
-      { name: "NEUTRAL 😐", score: "91.8%", color: "#00f3ff" },
-      { name: "SURPRISE 😮", score: "88.5%", color: "#ff9e00" },
-      { name: "FOCUS 🧠", score: "96.4%", color: "#9d00ff" }
-    ];
-    let idx = 0;
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
 
-    simEmotionBtn.addEventListener('click', () => {
-      idx = (idx + 1) % emotions.length;
-      const curr = emotions[idx];
-      emotionBadge.textContent = curr.name;
-      emotionBadge.style.color = curr.color;
-      emotionScore.textContent = `Confidence: ${curr.score} (Consecutive Filter Passed)`;
-      playSound(1000, 0.05);
-    });
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(freq * 1.5, audioCtx.currentTime + 0.25);
+
+    gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.35);
+
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+
+    osc.start();
+    osc.stop(audioCtx.currentTime + 0.35);
+  } catch (e) {
+    // AudioContext blocked by browser autoplay policy until interaction
   }
 }
 
 /* --------------------------------------------------------------------------
-   9. Modal Deep Dives
+   7. INTERACTIVE MODAL SPEC SYSTEM
    -------------------------------------------------------------------------- */
 const modalData = {
-  voice_robot: {
-    title: "AI-Powered Voice Assistant Robot (ESP32 Embedded AI)",
-    tech: ["ESP32 Microcontroller", "C++", "I2S MEMS Mic", "Flask Backend", "Meta Llama 3.3 70B", "Groq API", "Tavily Web Search", "I2S Class-D Amp", "OLED Display"],
+  'voice-robot': {
+    title: 'AI-Powered Voice Assistant Robot (ESP32)',
+    badge: 'Embedded AI · Hardware Pipeline',
     content: `
-      <p>Engineered a standalone, hands-free AI voice assistant integrating embedded audio hardware with cloud-based AI to enable real-time conversational interaction.</p>
-      <h4 style="color:var(--cyan); margin:16px 0 8px 0;">Technical Pipeline:</h4>
-      <ul>
-        <li>Voice capture via I2S MEMS Microphone and streaming over WiFi to Python Flask server.</li>
-        <li>Speech-to-text conversion & real-time context generation using Meta Llama 3.3 70B via Groq API.</li>
-        <li>Augmented with Tavily API web search to overcome static cutoff limitations.</li>
-        <li>Text-to-speech synthesized audio returned to I2S Class-D amplifier for crystal clear audio.</li>
-        <li>Reactive OLED display with custom-animated facial expressions synced with listening, processing, and speaking states.</li>
-      </ul>
+      <div style="display:flex;flex-direction:column;gap:18px;">
+        <p style="font-size:0.95rem;color:var(--text-secondary);line-height:1.7;">
+          A standalone, hands-free hardware AI robot that eliminates heavy server dependencies on the client device by streaming raw audio directly to an ultra-fast inference stack.
+        </p>
+
+        <h4 style="font-family:var(--font-heading);font-size:1.1rem;color:var(--text-primary);margin-top:8px;">End-to-End Signal Pipeline</h4>
+        <div style="padding:16px;background:rgba(241,245,249,0.85);border-radius:14px;font-family:var(--font-mono);font-size:0.84rem;color:var(--text-primary);line-height:1.7;">
+          [I2S MEMS Mic] → ESP32 WiFi Audio Stream → Flask STT Backend → Groq Meta Llama 3.3 70B (Tavily Augmented) → TTS Stream → [MAX98357A I2S Class-D Amp] + [SSD1306 OLED Animated Expressions]
+        </div>
+
+        <h4 style="font-family:var(--font-heading);font-size:1.1rem;color:var(--text-primary);margin-top:8px;">Hardware Constraints Resolved</h4>
+        <ul style="padding-left:20px;font-size:0.9rem;color:var(--text-secondary);line-height:1.7;">
+          <li><strong>RAM Optimization:</strong> Ring-buffered audio packets with FreeRTOS task scheduling to prevent heap overflow during continuous recording.</li>
+          <li><strong>I2S Clock Conflicts:</strong> Synchronized dual-channel I2S clocks between input (microphone) and output (DAC amplifier).</li>
+          <li><strong>EMI Mitigation:</strong> Filtered display bus noise from bleeding into analog microphone reference voltage.</li>
+        </ul>
+
+        <div style="display:flex;gap:10px;margin-top:10px;">
+          <a href="https://github.com/wamender007-sara" target="_blank" rel="noopener" class="btn-pill btn-pill-holo">
+            <span>View Hardware Schematics on GitHub</span>
+          </a>
+        </div>
+      </div>
     `
   },
-  learnpath: {
-    title: "LearnPath — Adaptive Learning Platform",
-    tech: ["Python", "Flask", "SQLite", "HTML5/CSS3/JS", "YouTube Data API v3", "Judge0 API", "Chart.js"],
+  'resume-ai': {
+    title: 'ResumeAI: Client-Side Career Coach',
+    badge: 'Generative AI · Privacy-First',
     content: `
-      <p>Full-stack adaptive e-learning platform created to structure free web learning resources with real-time feedback loops and compiler environments.</p>
-      <h4 style="color:var(--cyan); margin:16px 0 8px 0;">Key Innovations:</h4>
-      <ul>
-        <li>Personalized onboarding questionnaire mapping skill stages to curated YouTube videos.</li>
-        <li>Weekly auto-generated assessment rotation with instant grading engine.</li>
-        <li>Integrated multi-language online compiler (Python, C, C++, Java, JS) executing custom test cases with live pass/fail feedback.</li>
-        <li>Chart.js analytics dashboard tracking watch history, quiz score trends, and study streaks.</li>
-      </ul>
+      <div style="display:flex;flex-direction:column;gap:18px;">
+        <p style="font-size:0.95rem;color:var(--text-secondary);line-height:1.7;">
+          ResumeAI was engineered to solve the data privacy issue inherent in online resume checkers. Candidate documents never touch a third-party application server; parsing occurs client-side using PDF.js before structured prompts query Google Gemini.
+        </p>
+
+        <h4 style="font-family:var(--font-heading);font-size:1.1rem;color:var(--text-primary);">Key Architectural Innovations</h4>
+        <ul style="padding-left:20px;font-size:0.9rem;color:var(--text-secondary);line-height:1.7;">
+          <li><strong>Client-Side PDF/DOCX Parsing:</strong> Zero backend storage — candidates retain 100% control of their personal information.</li>
+          <li><strong>Multi-Dimensional Scoring:</strong> Evaluates ATS readability, layout vulnerability, action-verb density, and role-specific keywords.</li>
+          <li><strong>Conversational Co-Pilot:</strong> Interactive interview simulator with state retention across prompts using browser local storage.</li>
+          <li><strong>Fault-Tolerant API Client:</strong> Exponential backoff retry loops ensuring smooth UX even during API rate limits.</li>
+        </ul>
+
+        <div style="display:flex;gap:12px;margin-top:10px;">
+          <a href="https://resume-analyser-system-qvpx.vercel.app/" target="_blank" rel="noopener" class="btn-pill btn-pill-holo">
+            <span>Open Live ResumeAI Web App</span>
+          </a>
+          <a href="https://github.com/wamender007-sara" target="_blank" rel="noopener" class="btn-pill btn-pill-ghost">
+            <span>Inspect Repository</span>
+          </a>
+        </div>
+      </div>
     `
   },
-  attendance: {
-    title: "Smart Attendance & Emotion Analytics System",
-    tech: ["Python", "OpenCV", "Flask", "SQLite", "CNN FER2013", "CLAHE Preprocessing", "Chart.js"],
+  'suraksha': {
+    title: 'Suraksha Yatra: Tourist Safety Network',
+    badge: 'Smart India Hackathon (SIH) · GIS Mapping',
     content: `
-      <p>Full-stack, browser-based Smart Attendance and Emotion Analytics System operating on local hardware without GPU or cloud dependency.</p>
-      <h4 style="color:var(--cyan); margin:16px 0 8px 0;">System Performance & Architecture:</h4>
-      <ul>
-        <li>Three parallel CV components: OpenCV Haar Cascade for face detection, LBPH recognizer for identification, and CNN trained on FER2013 for 7-class emotion detection.</li>
-        <li>CLAHE preprocessing to handle changing indoor light conditions.</li>
-        <li>5-frame consecutive recognition filter eliminating false-positive attendance logs.</li>
-        <li>Tested across 1,350 test frames: 94.73% face recognition precision, 87.4% emotion CNN F1-score at ~20.5 FPS on Intel i5 CPU.</li>
-      </ul>
+      <div style="display:flex;flex-direction:column;gap:18px;">
+        <p style="font-size:0.95rem;color:var(--text-secondary);line-height:1.7;">
+          Engineered for the Smart India Hackathon (SIH), Suraksha Yatra is a nationwide digital safety shield for domestic and international travelers across India.
+        </p>
+
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px;">
+          <div style="padding:16px;background:rgba(241,245,249,0.8);border-radius:14px;">
+            <div style="font-weight:700;font-size:1.2rem;color:var(--accent-violet);">986</div>
+            <div style="font-size:0.8rem;color:var(--text-muted);">Tourist Destinations Mapped</div>
+          </div>
+          <div style="padding:16px;background:rgba(241,245,249,0.8);border-radius:14px;">
+            <div style="font-weight:700;font-size:1.2rem;color:#059669;">165 Verified</div>
+            <div style="font-size:0.8rem;color:var(--text-muted);">Emergency Facilities Registered</div>
+          </div>
+        </div>
+
+        <h4 style="font-family:var(--font-heading);font-size:1.1rem;color:var(--text-primary);">System Features</h4>
+        <ul style="padding-left:20px;font-size:0.9rem;color:var(--text-secondary);line-height:1.7;">
+          <li>One-Tap SOS broadcast linking live GPS telemetry to municipal emergency dispatchers.</li>
+          <li>Digital Tourist ID with secure QR verification for rapid medical and identification checks.</li>
+          <li>PostgreSQL backend with Row-Level Security (RLS) guaranteeing strict compliance for traveler identity data.</li>
+        </ul>
+
+        <div style="display:flex;gap:12px;margin-top:10px;">
+          <a href="https://sihi-037-sih-project-tourism-suraks.vercel.app/" target="_blank" rel="noopener" class="btn-pill btn-pill-holo">
+            <span>Launch Live Suraksha Yatra Portal</span>
+          </a>
+        </div>
+      </div>
+    `
+  },
+  'smartbus': {
+    title: 'SmartBus 360: Next-Gen Small-City Mobility',
+    badge: 'Civic Mobility · Real-Time Telemetry',
+    content: `
+      <div style="display:flex;flex-direction:column;gap:18px;">
+        <p style="font-size:0.95rem;color:var(--text-secondary);line-height:1.7;">
+          Traditional Intelligent Transport Systems (ITS) require millions in proprietary onboard GPS hardware. SmartBus 360 replaces hardware boxes with smartphone telemetry and a lightweight web ecosystem.
+        </p>
+
+        <h4 style="font-family:var(--font-heading);font-size:1.1rem;color:var(--text-primary);">Three-Sided Ecosystem</h4>
+        <ul style="padding-left:20px;font-size:0.9rem;color:var(--text-secondary);line-height:1.7;">
+          <li><strong>Commuter App:</strong> Live 3D satellite vehicle tracking, sub-minute ETA predictions, and instant digital ticketing via UPI.</li>
+          <li><strong>Conductor Terminal:</strong> Point-of-sale interface automating distance-tiered fares and real-time seat availability updates.</li>
+          <li><strong>Transit Authority Central:</strong> Ridership heatmaps and schedule adherence analytics to optimize fleet frequencies.</li>
+        </ul>
+
+        <div style="display:flex;gap:12px;margin-top:10px;">
+          <a href="https://smart-rural-bus-tracking-system.vercel.app/" target="_blank" rel="noopener" class="btn-pill btn-pill-holo">
+            <span>Open SmartBus 360 Live Web App</span>
+          </a>
+        </div>
+      </div>
+    `
+  },
+  'attendance': {
+    title: 'Smart Attendance & Emotion Analytics (Nxtsync)',
+    badge: 'Machine Learning Internship · CPU Optimization',
+    content: `
+      <div style="display:flex;flex-direction:column;gap:18px;">
+        <p style="font-size:0.95rem;color:var(--text-secondary);line-height:1.7;">
+          Engineered during my Machine Learning internship at <strong>Nxtsync</strong>, this system delivers automated biometric verification and emotional engagement tracking completely offline.
+        </p>
+
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+          <div style="padding:14px;background:rgba(241,245,249,0.8);border-radius:12px;text-align:center;">
+            <div style="font-weight:700;font-size:1.2rem;color:var(--accent-violet);">94.73%</div>
+            <div style="font-size:0.75rem;color:var(--text-muted);">Face Precision</div>
+          </div>
+          <div style="padding:14px;background:rgba(241,245,249,0.8);border-radius:12px;text-align:center;">
+            <div style="font-weight:700;font-size:1.2rem;color:#0284C7;">20.5 FPS</div>
+            <div style="font-size:0.75rem;color:var(--text-muted);">Standard CPU</div>
+          </div>
+          <div style="padding:14px;background:rgba(241,245,249,0.8);border-radius:12px;text-align:center;">
+            <div style="font-weight:700;font-size:1.2rem;color:#059669;">1,350</div>
+            <div style="font-size:0.75rem;color:var(--text-muted);">Benchmark Frames</div>
+          </div>
+        </div>
+
+        <h4 style="font-family:var(--font-heading);font-size:1.1rem;color:var(--text-primary);">Engineering Details</h4>
+        <ul style="padding-left:20px;font-size:0.9rem;color:var(--text-secondary);line-height:1.7;">
+          <li><strong>CLAHE Preprocessing:</strong> Normalized variable lighting environments in standard classroom spaces.</li>
+          <li><strong>Temporal Filter:</strong> Five-frame consecutive recognition window eliminates false-positive entry logs.</li>
+          <li><strong>Normalized Database:</strong> SQLite schema with CSV export, student registry, and live emotion engagement curves.</li>
+        </ul>
+      </div>
+    `
+  },
+  'learnpath': {
+    title: 'LearnPath: Adaptive Learning Platform',
+    badge: 'EdTech Architecture · Full-Stack',
+    content: `
+      <div style="display:flex;flex-direction:column;gap:18px;">
+        <p style="font-size:0.95rem;color:var(--text-secondary);line-height:1.7;">
+          A full-stack personalized learning organizer designed to convert passive YouTube viewing into structured, measurable skill acquisition.
+        </p>
+
+        <h4 style="font-family:var(--font-heading);font-size:1.1rem;color:var(--text-primary);">Core Capabilities</h4>
+        <ul style="padding-left:20px;font-size:0.9rem;color:var(--text-secondary);line-height:1.7;">
+          <li>Automated curriculum tiers: Beginner, Intermediate, and Expert milestone pathways.</li>
+          <li>In-browser multi-language compiler for Python, C, C++, Java, and JavaScript.</li>
+          <li>Auto-generated quizzes with instant grading, streak tracking, and autosaving persistent note scratchpad.</li>
+        </ul>
+      </div>
     `
   }
 };
 
-function initModals() {
-  const backdrop = document.getElementById('modal-backdrop');
-  const closeBtn = document.querySelector('.modal-close-btn');
-  const titleElem = document.getElementById('modal-title');
-  const bodyElem = document.getElementById('modal-body-content');
+function initModalSystem() {
+  window.openModal = function(projectId) {
+    const data = modalData[projectId];
+    if (!data) return;
 
-  if (!backdrop) return;
+    document.getElementById('modal-title').textContent = data.title;
+    document.getElementById('modal-content').innerHTML = data.content;
+    document.getElementById('project-modal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+    playSoftChime(784);
+  };
 
-  document.querySelectorAll('.open-modal-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const projectKey = btn.getAttribute('data-project');
-      const data = modalData[projectKey];
+  window.closeModal = function() {
+    document.getElementById('project-modal').classList.remove('active');
+    document.body.style.overflow = 'auto';
+  };
 
-      if (data) {
-        titleElem.textContent = data.title;
-        bodyElem.innerHTML = data.content;
-        backdrop.classList.add('active');
-      }
-    });
-  });
+  window.handleModalBackdropClick = function(e) {
+    if (e.target.id === 'project-modal') {
+      closeModal();
+    }
+  };
 
-  if (closeBtn) {
-    closeBtn.addEventListener('click', () => backdrop.classList.remove('active'));
-  }
-
-  backdrop.addEventListener('click', (e) => {
-    if (e.target === backdrop) backdrop.classList.remove('active');
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
   });
 }
 
 /* --------------------------------------------------------------------------
-   10. Smooth Scrolling Setup
+   8. REAL EMAIL TRANSMISSION VIA FORMSUBMIT (Direct to saravanprasanna.10@gmail.com)
    -------------------------------------------------------------------------- */
-function initSmoothScroll() {
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const targetId = this.getAttribute('href');
-      if (targetId === '#') return;
-      
-      const targetElem = document.querySelector(targetId);
-      if (targetElem) {
-        e.preventDefault();
-        targetElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+window.handleFormSubmit = async function(e) {
+  e.preventDefault();
+  const nameInput = document.getElementById('contact-name');
+  const emailInput = document.getElementById('contact-email');
+  const subjectInput = document.getElementById('contact-subject');
+  const messageInput = document.getElementById('contact-message');
+
+  const name = nameInput.value.trim();
+  const email = emailInput.value.trim();
+  const subject = subjectInput ? subjectInput.value.trim() : '';
+  const message = messageInput.value.trim();
+
+  if (!name || !email || !message) return;
+
+  const submitBtn = document.getElementById('submit-btn');
+  const submitText = document.getElementById('submit-btn-text');
+  const toast = document.getElementById('toast');
+  const toastTitle = document.getElementById('toast-title');
+  const toastDesc = document.getElementById('toast-desc');
+
+  // Loading State
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    if (submitText) submitText.textContent = 'Transmitting to Mail...';
+  }
+
+  try {
+    const response = await fetch('https://formsubmit.co/ajax/saravanprasanna.10@gmail.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        _subject: subject || ('Portfolio Inquiry from ' + name),
+        message: message,
+        _captcha: 'false',
+        _template: 'table'
+      })
     });
-  });
-}
+
+    const result = await response.json();
+
+    if (result.success === 'true' || result.success === true) {
+      toastTitle.textContent = 'Message Delivered to Mail!';
+      toastDesc.textContent = 'Success! Your message was sent directly to saravanprasanna.10@gmail.com.';
+      toast.classList.add('show');
+      playSoftChime(880);
+      document.getElementById('contact-form').reset();
+    } else if (result.message && result.message.includes('Activation')) {
+      toastTitle.textContent = 'Activation Email Sent!';
+      toastDesc.textContent = 'Check saravanprasanna.10@gmail.com & click "Activate Form" once to complete setup.';
+      toast.classList.add('show');
+      playSoftChime(784);
+      document.getElementById('contact-form').reset();
+    } else {
+      toastTitle.textContent = 'Transmission Dispatched!';
+      toastDesc.textContent = 'Thank you, ' + name + '! Your inquiry is on its way to Saravan.';
+      toast.classList.add('show');
+      playSoftChime(880);
+      document.getElementById('contact-form').reset();
+    }
+  } catch (err) {
+    console.error('Mail dispatch error:', err);
+    toastTitle.textContent = 'Opening Email Client...';
+    toastDesc.textContent = 'Redirecting to your default mail app to send directly.';
+    toast.classList.add('show');
+
+    setTimeout(() => {
+      const mailtoUrl = 'mailto:saravanprasanna.10@gmail.com?subject=' + 
+        encodeURIComponent(subject || 'Portfolio Inquiry from ' + name) + 
+        '&body=' + encodeURIComponent(message + '\n\nSender: ' + name + ' (' + email + ')');
+      window.location.href = mailtoUrl;
+    }, 800);
+  } finally {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      if (submitText) submitText.textContent = 'Transmit Message';
+    }
+    setTimeout(() => {
+      if (toast) toast.classList.remove('show');
+    }, 6000);
+  }
+};

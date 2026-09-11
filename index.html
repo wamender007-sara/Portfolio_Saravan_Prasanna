@@ -4,820 +4,1036 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Saravan Prasanna | AI Engineer & Autonomous Systems Developer</title>
-  <meta name="description" content="Portfolio of Saravan Prasanna - AI Engineer, Embedded AI Specialist (ESP32, C++), Computer Vision Developer (OpenCV, CNN), and Full-Stack Web Developer.">
-  <meta name="keywords" content="Saravan Prasanna, AI Engineer, Portfolio, Three.js, Machine Learning, Python, ESP32, OpenCV, Flask, Computer Vision">
+  <meta name="description" content="Portfolio of Saravan Prasanna — AI Engineer, Embedded AI Specialist (ESP32), Computer Vision Developer (OpenCV, CNN), and Full-Stack Creator. Soft-futuristic portfolio.">
   
-  <!-- CSS Stylesheets -->
+  <!-- Google Fonts & Stylesheets -->
   <link rel="stylesheet" href="assets/style.css">
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Three.js CDN for 3D Cyber Neural Background -->
+  <!-- Three.js CDN for 3D Daylight Chromatic Sphere -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
 
-  <!-- 3D WebGL Background Canvas -->
-  <div id="three-bg"></div>
+  <!-- Ambient Blurred Glow Mesh Orbs -->
+  <div class="ambient-glow ambient-glow-1"></div>
+  <div class="ambient-glow ambient-glow-2"></div>
+  <div class="ambient-glow ambient-glow-3"></div>
 
-  <!-- Custom Particle Trail Cursor -->
-  <div class="cursor-dot"></div>
-  <div class="cursor-circle"></div>
-
-  <!-- Cyberpunk Boot Preloader -->
-  <div id="preloader">
-    <div class="loader-box">
-      <div class="loader-logo">
-        <span>SARAVAN</span>.AI
-      </div>
-      <div class="loader-status">BOOTING_SARAVAN_OS_v2.0...</div>
-      <div class="loader-bar-bg">
-        <div class="loader-bar-fill"></div>
-      </div>
-      <div class="loader-percentage">0%</div>
-    </div>
-  </div>
-
-  <!-- Navigation Bar -->
-  <header>
-    <div class="nav-container">
-      <a href="#hero" class="logo-brand">
-        <span class="dot"></span>
-        SARAVAN.AI
+  <!-- Floating Glass Pill Navbar -->
+  <header class="site-header">
+    <div class="nav-glass-container">
+      <a href="#hero" class="brand-logo">
+        <img src="assets/images/saravan_profile.png" alt="Saravan Prasanna" style="width:34px;height:34px;border-radius:50%;object-fit:cover;border:2px solid rgba(99, 102, 241, 0.4);box-shadow:0 2px 10px rgba(99,102,241,0.25);">
+        <span>SARAVAN <span style="color:var(--accent-violet);">PRASANNA</span></span>
       </a>
 
       <ul class="nav-links">
-        <li><a href="#hero" class="active">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#achievements">Awards</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#hero" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#testimonials" class="nav-link">Endorsements</a></li>
+        <li><a href="#achievements" class="nav-link">Awards</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
 
       <div class="nav-actions">
-        <!-- Resume Download Button -->
-        <a href="assets/Saravan_Prasanna_Resume.pdf" download="Saravan_Prasanna_Resume.pdf" class="btn-resume-cyber" title="Download Official Resume PDF">
-          <i class="lucide-file-text"></i> RESUME
+        <!-- Resume Download Pill -->
+        <a href="assets/Saravan_Prasanna_Resume.pdf" download="Saravan_Prasanna_Resume.pdf" class="btn-pill btn-pill-ghost" title="Download Official Resume PDF">
+          <i data-lucide="file-text" style="width:15px;height:15px;"></i>
+          <span>Resume</span>
         </a>
 
-        <!-- Connected LinkedIn Logo Button (Direct Link, No Raw Text Displayed) -->
-        <a href="https://www.linkedin.com/in/saravan-prasanna-k-u-a9b0723b2/" 
-           target="_blank" 
-           rel="noopener noreferrer" 
-           class="social-icon-btn linkedin-btn" 
-           title="Connect on LinkedIn" 
-           aria-label="LinkedIn Profile">
-          <svg viewBox="0 0 24 24">
-            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
-          </svg>
+        <!-- LinkedIn Icon -->
+        <a href="https://www.linkedin.com/in/saravan-prasanna-k-u-a9b0723b2/" target="_blank" rel="noopener noreferrer" class="btn-icon-pill" title="Connect on LinkedIn" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
         </a>
 
-        <!-- Connected GitHub Logo Button (Direct Link, No Raw Text Displayed) -->
-        <a href="https://github.com/wamender007-sara" 
-           target="_blank" 
-           rel="noopener noreferrer" 
-           class="social-icon-btn github-btn" 
-           title="Explore GitHub Repositories" 
-           aria-label="GitHub Profile">
-          <svg viewBox="0 0 24 24">
-            <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
-          </svg>
+        <!-- GitHub Icon -->
+        <a href="https://github.com/wamender007-sara" target="_blank" rel="noopener noreferrer" class="btn-icon-pill" title="Explore GitHub Repositories" aria-label="GitHub">
+          <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
         </a>
 
         <!-- Sound Toggle -->
-        <button id="sound-toggle" class="header-btn">
-          <i class="lucide-volume-2"></i> SOUND: ON
-        </button>
-
-        <!-- Terminal Trigger -->
-        <button class="header-btn open-terminal-btn" style="border-color:var(--cyan); color:var(--cyan);">
-          <i class="lucide-terminal"></i> TERMINAL
+        <button id="sound-toggle" class="sound-toggle-btn" title="Toggle Ambient Audio Micro-interactions">
+          <i data-lucide="volume-2" style="width:14px;height:14px;"></i>
+          <span>AUDIO: ON</span>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section id="hero" class="hero-section">
-    <div class="hero-content">
-      <div class="hero-status-badge">
-        <span class="status-dot"></span>
-        FRESHER 2ND YEAR | OPEN TO INTERNSHIPS
-      </div>
-
-      <h1 class="hero-title">
-        SARAVAN <br>
-        <span class="glitch-text">PRASANNA</span>
-      </h1>
-
-      <div class="hero-subtitle-box">
-        <span id="typing-target"></span>
-        <span class="typing-cursor"></span>
-      </div>
-
-      <p class="hero-description">
-        Innovative AI Engineer specializing in end-to-end autonomous systems, embedded IoT AI (ESP32), computer vision, and real-time machine learning pipelines. Combining C++, Python, and Three.js to craft high-impact solutions.
-      </p>
-
-      <div class="hero-actions">
-        <a href="#projects" class="btn-cyber-primary">
-          <i class="lucide-rocket"></i> EXPLORE PROJECTS
-        </a>
-        <a href="assets/Saravan_Prasanna_Resume.pdf" download="Saravan_Prasanna_Resume.pdf" class="btn-resume-cyber" style="padding:14px 28px; font-size:0.95rem;">
-          <i class="lucide-download"></i> DOWNLOAD RESUME
-        </a>
-        <button class="btn-cyber-secondary open-terminal-btn">
-          <i class="lucide-terminal"></i> LAUNCH AI TERMINAL
-        </button>
-      </div>
-
-      <!-- Quick Connected Social Bar -->
-      <div class="social-connect-bar">
-        <span class="social-connect-label">CONNECTED PROFILES:</span>
-        
-        <!-- Connected LinkedIn Logo Button -->
-        <a href="https://www.linkedin.com/in/saravan-prasanna-k-u-a9b0723b2/" 
-           target="_blank" 
-           rel="noopener noreferrer" 
-           class="social-icon-btn linkedin-btn" 
-           title="Open LinkedIn Profile">
-          <svg viewBox="0 0 24 24">
-            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
-          </svg>
-        </a>
-
-        <!-- Connected GitHub Logo Button -->
-        <a href="https://github.com/wamender007-sara" 
-           target="_blank" 
-           rel="noopener noreferrer" 
-           class="social-icon-btn github-btn" 
-           title="Open GitHub Profile">
-          <svg viewBox="0 0 24 24">
-            <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- Hero Visual Avatar -->
-    <div class="hero-visual">
-      <div class="avatar-wrapper">
-        <div class="avatar-ring"></div>
-        <div class="avatar-ring-2"></div>
-        
-        <div class="badge-1 floating-badge">
-          <i class="lucide-cpu" style="color:var(--cyan);"></i> ESP32 & IoT
-        </div>
-        <div class="badge-2 floating-badge">
-          <i class="lucide-brain" style="color:var(--purple);"></i> Computer Vision
-        </div>
-
-        <div class="avatar-img-box">
-          <img src="assets/images/avatar.jpg" alt="Saravan Prasanna AI Engineer">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about">
-    <div class="section-tag">BACKGROUND & CAPABILITIES</div>
-    <h2 class="section-title">ABOUT <span>ME</span></h2>
-
-    <div class="about-grid">
-      <div class="glass-panel about-card">
-        <p class="about-p">
-          I am an <strong>Innovative AI Engineer</strong> pursuing my B.Tech in Artificial Intelligence and Data Science (2025–2029) at V S B College of Engineering Technical Campus.
-        </p>
-        <p class="about-p">
-          Experienced in end-to-end development of autonomous systems, hardware-embedded AI with ESP32 microcontrollers, and real-time computer vision pipelines. Proven track record of leading technical teams, authoring IEEE research documentation, and delivering automated regulatory systems.
-        </p>
-
-        <h4 style="color:var(--cyan); margin-bottom:12px; font-family:var(--font-mono)">LANGUAGES SPOKEN:</h4>
-        <div class="lang-tags">
-          <span class="lang-badge"><i class="lucide-globe"></i> English (Fluent)</span>
-          <span class="lang-badge"><i class="lucide-globe"></i> Tamil (Native)</span>
-          <span class="lang-badge"><i class="lucide-globe"></i> Malayalam (Conversational)</span>
-        </div>
-      </div>
-
-      <div class="stats-grid">
-        <div class="stat-item glass-panel">
-          <div class="stat-number">04+</div>
-          <div class="stat-label">DEEP AI & WEB PROJECTS</div>
-        </div>
-        <div class="stat-item glass-panel">
-          <div class="stat-number">07+</div>
-          <div class="stat-label">HACKATHONS & WINS</div>
-        </div>
-        <div class="stat-item glass-panel">
-          <div class="stat-number">94.7%</div>
-          <div class="stat-label">FACE REC PRECISION</div>
-        </div>
-        <div class="stat-item glass-panel">
-          <div class="stat-number">20.5</div>
-          <div class="stat-label">REAL-TIME CV FPS (CPU)</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills Matrix Section -->
-  <section id="skills">
-    <div class="section-tag">CORE COMPETENCIES</div>
-    <h2 class="section-title">SKILLS & <span>TECH MATRIX</span></h2>
-
-    <div class="skills-filter">
-      <button class="filter-btn active" data-filter="all">ALL SKILLS</button>
-      <button class="filter-btn" data-filter="ai-ml">AI & MACHINE LEARNING</button>
-      <button class="filter-btn" data-filter="embedded">EMBEDDED & IOT</button>
-      <button class="filter-btn" data-filter="web-fullstack">WEB & FULL-STACK</button>
-      <button class="filter-btn" data-filter="management">MANAGEMENT & SOFT SKILLS</button>
-    </div>
-
-    <div class="skills-grid">
-      <!-- C++ -->
-      <div class="glass-panel skill-card" data-cat="embedded">
-        <div class="skill-header">
-          <div class="skill-icon"><i class="lucide-code-2"></i></div>
-          <div>
-            <div class="skill-name">C++ Programming</div>
-            <div class="skill-percent">92%</div>
-          </div>
-        </div>
-        <div class="skill-level-bar">
-          <div class="skill-level-fill" data-width="92%"></div>
-        </div>
-      </div>
-
-      <!-- Python -->
-      <div class="glass-panel skill-card" data-cat="ai-ml">
-        <div class="skill-header">
-          <div class="skill-icon"><i class="lucide-terminal"></i></div>
-          <div>
-            <div class="skill-name">Python & Flask</div>
-            <div class="skill-percent">95%</div>
-          </div>
-        </div>
-        <div class="skill-level-bar">
-          <div class="skill-level-fill" data-width="95%"></div>
-        </div>
-      </div>
-
-      <!-- OpenCV & CNN -->
-      <div class="glass-panel skill-card" data-cat="ai-ml">
-        <div class="skill-header">
-          <div class="skill-icon"><i class="lucide-eye"></i></div>
-          <div>
-            <div class="skill-name">OpenCV, Haar Cascade, CNN</div>
-            <div class="skill-percent">90%</div>
-          </div>
-        </div>
-        <div class="skill-level-bar">
-          <div class="skill-level-fill" data-width="90%"></div>
-        </div>
-      </div>
-
-      <!-- Three.js -->
-      <div class="glass-panel skill-card" data-cat="web-fullstack">
-        <div class="skill-header">
-          <div class="skill-icon"><i class="lucide-box"></i></div>
-          <div>
-            <div class="skill-name">Three.js & WebGL</div>
-            <div class="skill-percent">86%</div>
-          </div>
-        </div>
-        <div class="skill-level-bar">
-          <div class="skill-level-fill" data-width="86%"></div>
-        </div>
-      </div>
-
-      <!-- ESP32 & IoT -->
-      <div class="glass-panel skill-card" data-cat="embedded">
-        <div class="skill-header">
-          <div class="skill-icon"><i class="lucide-cpu"></i></div>
-          <div>
-            <div class="skill-name">ESP32 & Audio Hardware (I2S)</div>
-            <div class="skill-percent">88%</div>
-          </div>
-        </div>
-        <div class="skill-level-bar">
-          <div class="skill-level-fill" data-width="88%"></div>
-        </div>
-      </div>
-
-      <!-- HTML5 / CSS3 / JavaScript -->
-      <div class="glass-panel skill-card" data-cat="web-fullstack">
-        <div class="skill-header">
-          <div class="skill-icon"><i class="lucide-layout"></i></div>
-          <div>
-            <div class="skill-name">HTML5, CSS3, JavaScript</div>
-            <div class="skill-percent">94%</div>
-          </div>
-        </div>
-        <div class="skill-level-bar">
-          <div class="skill-level-fill" data-width="94%"></div>
-        </div>
-      </div>
-
-      <!-- Problem Solving -->
-      <div class="glass-panel skill-card" data-cat="management">
-        <div class="skill-header">
-          <div class="skill-icon"><i class="lucide-lightbulb"></i></div>
-          <div>
-            <div class="skill-name">Problem Solving</div>
-            <div class="skill-percent">96%</div>
-          </div>
-        </div>
-        <div class="skill-level-bar">
-          <div class="skill-level-fill" data-width="96%"></div>
-        </div>
-      </div>
-
-      <!-- Project & Team Management -->
-      <div class="glass-panel skill-card" data-cat="management">
-        <div class="skill-header">
-          <div class="skill-icon"><i class="lucide-users"></i></div>
-          <div>
-            <div class="skill-name">Project & Team Management</div>
-            <div class="skill-percent">90%</div>
-          </div>
-        </div>
-        <div class="skill-level-bar">
-          <div class="skill-level-fill" data-width="90%"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects Showcase Section -->
-  <section id="projects">
-    <div class="section-tag">ENGINEERED SYSTEM PORTFOLIO</div>
-    <h2 class="section-title">FEATURED <span>PROJECTS</span></h2>
-
-    <div class="projects-grid">
-      <!-- Project 1: Voice Assistant Robot -->
-      <div class="glass-panel project-card">
-        <div class="project-thumb">
-          <img src="assets/images/voice_robot.jpg" alt="AI-Powered Voice Assistant Robot">
-          <div class="project-overlay">
-            <span class="project-badge">EMBEDDED AI & ROBOTICS</span>
-          </div>
-        </div>
-
-        <div class="project-body">
-          <h3 class="project-title">AI Voice Assistant Robot (ESP32)</h3>
-          <p class="project-desc">
-            Standalone hands-free AI voice assistant with I2S MEMS mic streaming over WiFi to Python Flask backend using Meta Llama 3.3 70B via Groq API, Tavily real-time web search, and reactive OLED facial expressions.
-          </p>
-
-          <div class="project-tech-stack">
-            <span class="tech-tag">ESP32</span>
-            <span class="tech-tag">C++</span>
-            <span class="tech-tag">Flask</span>
-            <span class="tech-tag">Llama 3.3</span>
-            <span class="tech-tag">I2S Amp</span>
-          </div>
-
-          <!-- Waveform Demo -->
-          <div class="demo-box">
-            <div style="margin-bottom:6px; color:var(--cyan)">AUDIO WAVEFORM SYNTH (LIVE STREAM):</div>
-            <canvas id="voice-waveform" class="waveform-canvas" width="300" height="60"></canvas>
-          </div>
-
-          <div class="project-footer" style="margin-top:16px;">
-            <button class="btn-cyber-secondary open-modal-btn" data-project="voice_robot">
-              SYSTEM SPECS <i class="lucide-arrow-right"></i>
-            </button>
-            <a href="https://github.com/wamender007-sara" target="_blank" class="social-icon-btn github-btn" title="View Source on GitHub">
-              <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 2: LearnPath Platform -->
-      <div class="glass-panel project-card">
-        <div class="project-thumb">
-          <img src="assets/images/learnpath.jpg" alt="LearnPath Adaptive E-Learning Platform">
-          <div class="project-overlay">
-            <span class="project-badge">FULL-STACK & E-LEARNING</span>
-          </div>
-        </div>
-
-        <div class="project-body">
-          <h3 class="project-title">LearnPath — Adaptive Learning Platform</h3>
-          <p class="project-desc">
-            Full-stack e-learning platform with YouTube video feeds (Beginner, Intermediate, Expert), weekly rotating quizzes, Chart.js analytics dashboard, and multi-language online compiler.
-          </p>
-
-          <div class="project-tech-stack">
-            <span class="tech-tag">Python</span>
-            <span class="tech-tag">Flask</span>
-            <span class="tech-tag">SQLite</span>
-            <span class="tech-tag">Judge0 API</span>
-            <span class="tech-tag">Chart.js</span>
-          </div>
-
-          <!-- Compiler Demo -->
-          <div class="demo-box compiler-runner">
-            <div style="color:var(--cyan)">LIVE COMPILER SIMULATOR:</div>
-            <button id="run-code-sim" class="compiler-btn">EXECUTE TEST CASES</button>
-            <div id="compiler-out" class="compiler-output">Click execute to test sandbox...</div>
-          </div>
-
-          <div class="project-footer" style="margin-top:16px;">
-            <button class="btn-cyber-secondary open-modal-btn" data-project="learnpath">
-              ARCH DETAILS <i class="lucide-arrow-right"></i>
-            </button>
-            <a href="https://github.com/wamender007-sara" target="_blank" class="social-icon-btn github-btn" title="View Source on GitHub">
-              <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 3: Smart Attendance & Emotion Analytics -->
-      <div class="glass-panel project-card">
-        <div class="project-thumb">
-          <img src="assets/images/emotion_analytics.jpg" alt="Smart Attendance and Emotion Analytics">
-          <div class="project-overlay">
-            <span class="project-badge">COMPUTER VISION & ML</span>
-          </div>
-        </div>
-
-        <div class="project-body">
-          <h3 class="project-title">Smart Attendance & Emotion Analytics</h3>
-          <p class="project-desc">
-            Browser-based system combining OpenCV Haar Cascade, LBPH face identification, and CNN FER2013 7-class emotion recognition. 94.73% precision running at 20.5 FPS without GPU acceleration.
-          </p>
-
-          <div class="project-tech-stack">
-            <span class="tech-tag">OpenCV</span>
-            <span class="tech-tag">CNN</span>
-            <span class="tech-tag">FER2013</span>
-            <span class="tech-tag">CLAHE</span>
-            <span class="tech-tag">Flask</span>
-          </div>
-
-          <!-- Emotion Detector Simulator -->
-          <div class="demo-box">
-            <div style="color:var(--cyan)">CV EMOTION CLASSIFIER SIMULATION:</div>
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:6px;">
-              <span id="sim-emotion-badge" style="font-weight:bold; color:var(--green)">HAPPY 😊</span>
-              <button id="sim-emotion-btn" class="compiler-btn" style="padding:4px 8px; font-size:0.75rem;">DETECT FRAME</button>
+  <main>
+    <!-- HERO SECTION -->
+    <section id="hero">
+      <div class="section-container">
+        <div class="hero-grid">
+          <!-- Left Text Column -->
+          <div class="hero-text reveal-on-scroll">
+            <div class="status-badge">
+              <span class="ping"></span>
+              <span>FRESHER 2ND YEAR · OPEN TO INTERN</span>
             </div>
-            <div id="sim-emotion-score" style="color:var(--text-muted); font-size:0.78rem; margin-top:4px;">Confidence: 94.2% (Consecutive Filter Passed)</div>
-          </div>
 
-          <div class="project-footer" style="margin-top:16px;">
-            <button class="btn-cyber-secondary open-modal-btn" data-project="attendance">
-              IEEE PAPER & BENCHMARKS <i class="lucide-arrow-right"></i>
-            </button>
-            <a href="https://github.com/wamender007-sara" target="_blank" class="social-icon-btn github-btn" title="View Source on GitHub">
-              <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+            <h1 class="hero-heading">
+              Engineering <span class="holo-text">Tomorrow</span> with Daylight Precision.
+            </h1>
 
-  <!-- Achievements & Awards Section -->
-  <section id="achievements">
-    <div class="section-tag">HONORS & COMPETITIONS</div>
-    <h2 class="section-title">ACHIEVEMENTS & <span>AWARDS</span></h2>
+            <p class="hero-bio">
+              I am <strong>Saravan Prasanna</strong>, an innovative AI Engineer and B.Tech AI & Data Science student. I synthesize <strong>hardware edge robotics (ESP32)</strong>, <strong>high-efficiency computer vision</strong>, and <strong>modern cloud intelligence</strong> into living, real-time systems.
+            </p>
 
-    <div class="timeline">
-      <!-- Item 1 -->
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="glass-panel timeline-card">
-          <div class="timeline-header">
-            <h3 class="timeline-title">Ideathon Winner | Inter-Collegiate Fest</h3>
-            <span class="award-tag">🏆 1ST PLACE</span>
-          </div>
-          <p style="color:var(--text-muted);">
-            Awarded First Place for conceptualizing and presenting an innovative AI/IoT solution during the first-year inter-collegiate Ideathon. Demonstrated strong analytical thinking and pitching skills.
-          </p>
-        </div>
-      </div>
+            <div class="hero-actions">
+              <a href="#projects" class="btn-hero-primary">
+                <span>Explore Engineered Work</span>
+                <i data-lucide="arrow-right" style="width:17px;height:17px;"></i>
+              </a>
+              <a href="#contact" class="btn-hero-secondary">
+                <i data-lucide="sparkles" style="width:17px;height:17px;color:var(--accent-violet);"></i>
+                <span>Initiate Contact</span>
+              </a>
+            </div>
 
-      <!-- Item 2 -->
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="glass-panel timeline-card">
-          <div class="timeline-header">
-            <h3 class="timeline-title">3rd Place: Code Debugging | Inter-Collegiate Fest</h3>
-            <span class="award-tag">🥈 3RD PLACE</span>
-          </div>
-          <p style="color:var(--text-muted);">
-            Secured Third Place in a competitive debugging challenge. Successfully resolved complex logical, syntactical, and runtime errors across multiple programming languages under strict time limits.
-          </p>
-        </div>
-      </div>
-
-      <!-- Item 3 -->
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="glass-panel timeline-card">
-          <div class="timeline-header">
-            <h3 class="timeline-title">3rd Place: Web Design | GIT Institution, Kottayam</h3>
-            <span class="award-tag">🎨 3RD PLACE</span>
-          </div>
-          <p style="color:var(--text-muted);">
-            Earned Third Place in a regional Web Design competition hosted by GIT Institution. Developed a responsive, user-centric interface balancing aesthetics with functional UI/UX.
-          </p>
-        </div>
-      </div>
-
-      <!-- Item 4 -->
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="glass-panel timeline-card">
-          <div class="timeline-header">
-            <h3 class="timeline-title">Project Expo Participant | Inter-Collegiate Event</h3>
-            <span class="award-tag">🚀 PARTICIPANT</span>
-          </div>
-          <p style="color:var(--text-muted);">
-            Selected to showcase a technical prototype during the first-year Project Expo, demonstrating hardware-software integration to industry experts.
-          </p>
-        </div>
-      </div>
-
-      <!-- Item 5 -->
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="glass-panel timeline-card">
-          <div class="timeline-header">
-            <h3 class="timeline-title">Innovation Catalyst | Intra College Project Contest</h3>
-            <span class="award-tag">⚡ RECOGNIZED</span>
-          </div>
-          <p style="color:var(--text-muted);">
-            Organized by the Electronics Club; presented an innovative project recognized for outstanding technical ingenuity and execution.
-          </p>
-        </div>
-      </div>
-
-      <!-- Item 6 -->
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="glass-panel timeline-card">
-          <div class="timeline-header">
-            <h3 class="timeline-title">Sparkathon - 6 Hours IoT Hackathon</h3>
-            <span class="award-tag">⚙️ HACKATHON</span>
-          </div>
-          <p style="color:var(--text-muted);">
-            Actively participated in a non-stop 6-hour hackathon focused on developing innovative Internet of Things (IoT) solutions under tight deadlines.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Education & Certifications Section -->
-  <section id="education">
-    <div class="section-tag">ACADEMIC JOURNEY & CREDENTIALS</div>
-    <h2 class="section-title">EDUCATION & <span>COURSES</span></h2>
-
-    <div class="edu-grid">
-      <!-- Degree & School -->
-      <div class="glass-panel edu-card">
-        <h3 style="font-family:var(--font-heading); font-size:1.4rem; color:#fff; margin-bottom:20px;">
-          ACADEMIC DEGREE
-        </h3>
-
-        <div style="margin-bottom:24px;">
-          <div class="edu-year">2025 - 2029</div>
-          <h4 style="color:#fff; font-size:1.15rem; font-weight:700;">Bachelor of Technology in AI & Data Science</h4>
-          <p style="color:var(--text-muted);">V S B College Of Engineering Technical Campus</p>
-          <span class="lang-badge" style="margin-top:8px;">2nd Year Student</span>
-        </div>
-
-        <div>
-          <div class="edu-year">2024 - 2025</div>
-          <h4 style="color:#fff; font-size:1.15rem; font-weight:700;">Higher Secondary Schooling</h4>
-          <p style="color:var(--text-muted);">Sri Gopalnaidu Hr Sec School</p>
-        </div>
-      </div>
-
-      <!-- Certifications -->
-      <div class="glass-panel edu-card">
-        <h3 style="font-family:var(--font-heading); font-size:1.4rem; color:#fff; margin-bottom:20px;">
-          VERIFIED CERTIFICATIONS
-        </h3>
-
-        <div class="course-item">
-          <div class="course-title">Front End Development - HTML</div>
-          <div class="course-provider">Great Learning Academy | May 2024</div>
-        </div>
-
-        <div class="course-item">
-          <div class="course-title">Basics of Python</div>
-          <div class="course-provider">Infosys Springboard</div>
-        </div>
-
-        <div class="course-item">
-          <div class="course-title">Course on Machine Learning (ML)</div>
-          <div class="course-provider">Nxtsync (AICTE Approved & ISO 9001 Certified)</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact & Social Hub Section -->
-  <section id="contact">
-    <div class="section-tag">GET IN TOUCH</div>
-    <h2 class="section-title">CONNECT WITH <span>SARAVAN</span></h2>
-
-    <div class="contact-container">
-      <div class="glass-panel contact-info-card">
-        <div>
-          <h3 style="font-family:var(--font-heading); font-size:1.5rem; color:#fff; margin-bottom:20px;">
-            CONTACT INFORMATION
-          </h3>
-
-          <div class="contact-item">
-            <div class="contact-icon"><i class="lucide-phone"></i></div>
-            <div>
-              <div class="contact-text-label">PHONE NUMBER</div>
-              <a href="tel:+918015281343" class="contact-text-val">+91 80152 81343</a>
+            <!-- Quantitative Metrics Bar -->
+            <div class="hero-metrics">
+              <div class="metric-item">
+                <span class="metric-val">94.73<span class="highlight">%</span></span>
+                <span class="metric-lbl">Vision Precision</span>
+              </div>
+              <div class="metric-divider"></div>
+              <div class="metric-item">
+                <span class="metric-val">20.5 <span class="highlight">FPS</span></span>
+                <span class="metric-lbl">CPU Real-Time ML</span>
+              </div>
+              <div class="metric-divider"></div>
+              <div class="metric-item">
+                <span class="metric-val">986<span class="highlight">+</span></span>
+                <span class="metric-lbl">Safety Nodes</span>
+              </div>
+              <div class="metric-divider"></div>
+              <div class="metric-item">
+                <span class="metric-val">6<span class="highlight">+</span></span>
+                <span class="metric-lbl">Live Systems</span>
+              </div>
             </div>
           </div>
 
-          <div class="contact-item">
-            <div class="contact-icon"><i class="lucide-mail"></i></div>
-            <div>
-              <div class="contact-text-label">EMAIL ADDRESS</div>
-              <a href="mailto:saravanprasanna.10@gmail.com" class="contact-text-val">saravanprasanna.10@gmail.com</a>
-            </div>
-          </div>
+          <!-- Right 3D Visual Column with Centered Portrait -->
+          <div class="hero-visual reveal-on-scroll">
+            <div id="three-container" class="three-canvas-container" title="Interactive 3D Daylight Particles — drag to rotate"></div>
 
-          <div class="contact-item">
-            <div class="contact-icon"><i class="lucide-map-pin"></i></div>
-            <div>
-              <div class="contact-text-label">LOCATION</div>
-              <div class="contact-text-val">Gandhi Maanagar, Peelamedu, Coimbatore</div>
+            <!-- Central Hero Portrait Stage -->
+            <div class="hero-portrait-stage">
+              <div class="hero-portrait-glow"></div>
+              <div class="hero-portrait-ring"></div>
+              <div class="hero-portrait-frame">
+                <img src="assets/images/saravan_profile.png" alt="Saravan Prasanna — AI Engineer" class="hero-portrait-img">
+              </div>
+            </div>
+
+            <!-- Floating Glass Chips -->
+            <div class="float-chip float-chip-1">
+              <div class="chip-icon icon-violet">
+                <i data-lucide="cpu" style="width:20px;height:20px;"></i>
+              </div>
+              <div class="chip-content">
+                <span class="chip-title">ESP32 Edge Robotics</span>
+                <span class="chip-sub">I2S Audio · Groq Llama 3.3</span>
+              </div>
+            </div>
+
+            <div class="float-chip float-chip-2">
+              <div class="chip-icon icon-teal">
+                <i data-lucide="eye" style="width:20px;height:20px;"></i>
+              </div>
+              <div class="chip-content">
+                <span class="chip-title">Computer Vision</span>
+                <span class="chip-sub">OpenCV · FER2013 · Zero GPU</span>
+              </div>
+            </div>
+
+            <div class="float-chip float-chip-3">
+              <div class="chip-icon icon-pink">
+                <i data-lucide="bot" style="width:20px;height:20px;"></i>
+              </div>
+              <div class="chip-content">
+                <span class="chip-title">Gemini AI Co-Pilot</span>
+                <span class="chip-sub">Client-Side ATS Engine</span>
+              </div>
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Connected Social Cards (Clicking Logo/Card Directly Opens Link) -->
-        <div>
-          <div style="font-family:var(--font-mono); font-size:0.8rem; color:var(--text-muted); margin-bottom:12px;">
-            TOUCH / CLICK LOGOS TO VISIT PROFILES:
+    <!-- ABOUT SECTION -->
+    <section id="about">
+      <div class="section-container">
+        <div class="section-header reveal-on-scroll">
+          <div class="section-tag">
+            <i data-lucide="user" style="width:13px;height:13px;"></i>
+            <span>Architect Profile</span>
+          </div>
+          <h2 class="section-title">Bridging Silicon Hardware & Neural Intelligence</h2>
+          <p class="section-subtitle">
+            Focused on building lightweight, zero-latency autonomous systems that operate seamlessly between edge microcontrollers and cloud LLM fabrics.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <!-- Profile Card -->
+          <div class="glass-panel about-card-profile reveal-on-scroll">
+            <div class="profile-avatar-box">
+              <div class="avatar-ring"></div>
+              <img src="assets/images/saravan_profile.png" alt="Saravan Prasanna — AI Engineer" class="avatar-img">
+            </div>
+            <h3 class="profile-name">Saravan Prasanna</h3>
+            <p class="profile-role">AI Engineer · Autonomous Systems Specialist</p>
+            <p class="profile-bio-snippet">
+              2nd-year B.Tech AI & Data Science scholar with proven capabilities deploying edge vision, hands-free hardware voice robots, and full-stack web platforms.
+            </p>
+
+            <div class="profile-quick-details">
+              <div class="detail-row">
+                <span class="detail-label">Institution:</span>
+                <span class="detail-val">VSB College of Engg. Tech Campus</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Program:</span>
+                <span class="detail-val">B.Tech AI & Data Science (2025–2029)</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Location:</span>
+                <span class="detail-val">Gandhi Maanagar, Coimbatore, India</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Internship Status:</span>
+                <span class="detail-val" style="color:#059669;font-weight:700;">● Open to Immediate Roles</span>
+              </div>
+            </div>
           </div>
 
-          <div class="connected-logos-large">
-            <!-- LinkedIn Connected Logo Card -->
-            <a href="https://www.linkedin.com/in/saravan-prasanna-k-u-a9b0723b2/" 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="large-social-card linkedin-card" 
-               title="Connect on LinkedIn">
-              <div class="large-social-icon" style="color:#0077b5;">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
-                </svg>
+          <!-- Narrative Pillar Cards -->
+          <div class="about-cards-col">
+            <div class="glass-panel narrative-card reveal-on-scroll">
+              <div class="narrative-card-header">
+                <div class="narrative-icon">
+                  <i data-lucide="microchip" style="width:22px;height:22px;"></i>
+                </div>
+                <div>
+                  <h4 class="narrative-title">Embedded AI & Edge Robotics</h4>
+                </div>
+              </div>
+              <p class="narrative-text">
+                I take AI off the server and put it into physical space. By architecting custom firmware for ESP32 with I2S MEMS microphones, Class-D amplifiers, and reactive OLED displays, I solved critical hardware constraints like RAM buffering and clock conflict resolution for real-time speech interaction.
+              </p>
+              <div class="journey-tags">
+                <span class="journey-tag">ESP32 FreeRTOS</span>
+                <span class="journey-tag">I2S Audio Pipeline</span>
+                <span class="journey-tag">Hardware Clock Sync</span>
+                <span class="journey-tag">Edge Optimization</span>
+              </div>
+            </div>
+
+            <div class="glass-panel narrative-card reveal-on-scroll">
+              <div class="narrative-card-header">
+                <div class="narrative-icon" style="background:rgba(56, 189, 248, 0.12);color:#0284C7;">
+                  <i data-lucide="scan-face" style="width:22px;height:22px;"></i>
+                </div>
+                <div>
+                  <h4 class="narrative-title">Machine Learning Internship at Nxtsync</h4>
+                </div>
+              </div>
+              <p class="narrative-text">
+                During my internship at <strong>Nxtsync</strong>, I designed a production-grade Smart Attendance and 7-class Emotion Analytics system using OpenCV and CNN architectures (FER2013). The pipeline achieved <strong>94.73% precision</strong> running at <strong>20.5 FPS purely on standard CPU hardware</strong> without requiring dedicated GPUs.
+              </p>
+              <div class="journey-tags">
+                <span class="journey-tag">FER2013 CNN</span>
+                <span class="journey-tag">Haar Cascades</span>
+                <span class="journey-tag">CLAHE Preprocessing</span>
+                <span class="journey-tag">CPU Inference Optimization</span>
+              </div>
+            </div>
+
+            <div class="glass-panel narrative-card reveal-on-scroll">
+              <div class="narrative-card-header">
+                <div class="narrative-icon" style="background:rgba(16, 185, 129, 0.12);color:#059669;">
+                  <i data-lucide="layers" style="width:22px;height:22px;"></i>
+                </div>
+                <div>
+                  <h4 class="narrative-title">Full-Stack Intelligence & Public Good</h4>
+                </div>
+              </div>
+              <p class="narrative-text">
+                I build software that serves human lives. From <strong>Suraksha Yatra</strong> (smart tourist safety mapping across 986 destinations) to <strong>SmartBus 360</strong> (3D transit tracking and automated ticketing for rural cities) and <strong>ResumeAI</strong> (privacy-preserving client-side career co-pilot).
+              </p>
+              <div class="journey-tags">
+                <span class="journey-tag">Smart Public Transit</span>
+                <span class="journey-tag">Emergency SOS Tracking</span>
+                <span class="journey-tag">Client-Side AI</span>
+                <span class="journey-tag">TypeScript & React</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills">
+      <div class="section-container">
+        <div class="section-header reveal-on-scroll">
+          <div class="section-tag">
+            <i data-lucide="zap" style="width:13px;height:13px;"></i>
+            <span>Capabilities Matrix</span>
+          </div>
+          <h2 class="section-title">Technical Mastery & Stack</h2>
+          <p class="section-subtitle">
+            Engineered through high-pressure hackathons, hardware prototypes, and rigorous machine learning research.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- 1. Embedded AI & IoT -->
+          <div class="glass-panel skill-category-card reveal-on-scroll">
+            <div class="skill-category-header">
+              <div class="skill-cat-icon cat-ai">
+                <i data-lucide="cpu" style="width:24px;height:24px;"></i>
               </div>
               <div>
-                <div class="large-social-title">LinkedIn</div>
-                <div class="large-social-sub">Professional Network</div>
+                <h3 class="skill-cat-title">Embedded AI & IoT</h3>
+                <p class="skill-cat-desc">Hardware firmware & edge inference</p>
               </div>
-            </a>
+            </div>
 
-            <!-- GitHub Connected Logo Card -->
-            <a href="https://github.com/wamender007-sara" 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="large-social-card github-card" 
-               title="Explore GitHub Projects">
-              <div class="large-social-icon" style="color:#fff;">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
-                </svg>
+            <div class="skill-items-list">
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span>ESP32 & C++ Architecture</span>
+                  <span class="skill-item-pct">92%</span>
+                </div>
+                <div class="skill-track"><div class="skill-fill" data-width="92%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span>I2S Audio Pipeline & DAC Amp</span>
+                  <span class="skill-item-pct">88%</span>
+                </div>
+                <div class="skill-track"><div class="skill-fill" data-width="88%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span>Microcontroller RAM & Clock Sync</span>
+                  <span class="skill-item-pct">90%</span>
+                </div>
+                <div class="skill-track"><div class="skill-fill" data-width="90%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span>Sensor Integration & Reactive OLED</span>
+                  <span class="skill-item-pct">86%</span>
+                </div>
+                <div class="skill-track"><div class="skill-fill" data-width="86%"></div></div>
+              </div>
+            </div>
+
+            <div class="skill-tags-cloud">
+              <span class="tech-pill">ESP32</span>
+              <span class="tech-pill">C / C++</span>
+              <span class="tech-pill">FreeRTOS</span>
+              <span class="tech-pill">I2S MEMS</span>
+              <span class="tech-pill">MAX98357A</span>
+              <span class="tech-pill">SSD1306</span>
+              <span class="tech-pill">WiFi Audio Stream</span>
+            </div>
+          </div>
+
+          <!-- 2. Machine Learning & Computer Vision -->
+          <div class="glass-panel skill-category-card reveal-on-scroll">
+            <div class="skill-category-header">
+              <div class="skill-cat-icon cat-cv">
+                <i data-lucide="camera" style="width:24px;height:24px;"></i>
               </div>
               <div>
-                <div class="large-social-title">GitHub</div>
-                <div class="large-social-sub">Code Repositories</div>
+                <h3 class="skill-cat-title">Vision & Deep Learning</h3>
+                <p class="skill-cat-desc">Real-time inference without GPU</p>
               </div>
-            </a>
+            </div>
+
+            <div class="skill-items-list">
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span>OpenCV Image Preprocessing (CLAHE)</span>
+                  <span class="skill-item-pct">95%</span>
+                </div>
+                <div class="skill-track"><div class="skill-fill" data-width="95%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span>CNN Classification (FER2013)</span>
+                  <span class="skill-item-pct">92%</span>
+                </div>
+                <div class="skill-track"><div class="skill-fill" data-width="92%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span>Haar Cascade & LBPH Recognition</span>
+                  <span class="skill-item-pct">94%</span>
+                </div>
+                <div class="skill-track"><div class="skill-fill" data-width="94%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span>CPU Pipeline Optimization (20.5 FPS)</span>
+                  <span class="skill-item-pct">90%</span>
+                </div>
+                <div class="skill-track"><div class="skill-fill" data-width="90%"></div></div>
+              </div>
+            </div>
+
+            <div class="skill-tags-cloud">
+              <span class="tech-pill">Python</span>
+              <span class="tech-pill">OpenCV</span>
+              <span class="tech-pill">CNN</span>
+              <span class="tech-pill">FER2013</span>
+              <span class="tech-pill">LBPH</span>
+              <span class="tech-pill">CLAHE</span>
+              <span class="tech-pill">NumPy</span>
+              <span class="tech-pill">Chart.js</span>
+            </div>
+          </div>
+
+          <!-- 3. Full-Stack & Generative AI -->
+          <div class="glass-panel skill-category-card reveal-on-scroll">
+            <div class="skill-category-header">
+              <div class="skill-cat-icon cat-web">
+                <i data-lucide="globe" style="width:24px;height:24px;"></i>
+              </div>
+              <div>
+                <h3 class="skill-cat-title">Full-Stack & Cloud AI</h3>
+                <p class="skill-cat-desc">Modern web apps and API pipelines</p>
+              </div>
+            </div>
+
+            <div class="skill-items-list">
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span>React, TypeScript & Tailwind CSS</span>
+                  <span class="skill-item-pct">90%</span>
+                </div>
+                <div class="skill-track"><div class="skill-fill" data-width="90%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span>Python Flask Backend & REST APIs</span>
+                  <span class="skill-item-pct">93%</span>
+                </div>
+                <div class="skill-track"><div class="skill-fill" data-width="93%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span>Gemini API & Groq LLM Pipelines</span>
+                  <span class="skill-item-pct">91%</span>
+                </div>
+                <div class="skill-track"><div class="skill-fill" data-width="91%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span>PostgreSQL & SQLite Data Models</span>
+                  <span class="skill-item-pct">87%</span>
+                </div>
+                <div class="skill-track"><div class="skill-fill" data-width="87%"></div></div>
+              </div>
+            </div>
+
+            <div class="skill-tags-cloud">
+              <span class="tech-pill">React</span>
+              <span class="tech-pill">TypeScript</span>
+              <span class="tech-pill">Flask</span>
+              <span class="tech-pill">PostgreSQL</span>
+              <span class="tech-pill">Leaflet GIS</span>
+              <span class="tech-pill">Gemini Pro</span>
+              <span class="tech-pill">Groq Llama 3</span>
+              <span class="tech-pill">PDF.js</span>
+            </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- Contact Message Form -->
-      <form class="glass-panel contact-form" onsubmit="event.preventDefault(); alert('Thank you for your message! Saravan will respond shortly.');">
-        <h3 style="font-family:var(--font-heading); font-size:1.5rem; color:#fff; margin-bottom:20px;">
-          SEND A DIRECT MESSAGE
-        </h3>
-
-        <div class="form-group">
-          <label>YOUR NAME</label>
-          <input type="text" class="form-control" placeholder="Enter your full name" required>
+    <!-- PROJECTS SECTION -->
+    <section id="projects">
+      <div class="section-container">
+        <div class="section-header reveal-on-scroll">
+          <div class="section-tag">
+            <i data-lucide="code-2" style="width:13px;height:13px;"></i>
+            <span>Portfolio Case Studies</span>
+          </div>
+          <h2 class="section-title">Engineered Real-World Systems</h2>
+          <p class="section-subtitle">
+            Every project represents end-to-end craftsmanship: from schematic wiring and model weight tuning to responsive, deployed web applications.
+          </p>
         </div>
 
-        <div class="form-group">
-          <label>YOUR EMAIL</label>
-          <input type="email" class="form-control" placeholder="Enter your email address" required>
+        <!-- Filter Pills -->
+        <div class="project-filters reveal-on-scroll">
+          <button class="filter-btn active" data-filter="all">All Systems (6)</button>
+          <button class="filter-btn" data-filter="hardware">Embedded & IoT</button>
+          <button class="filter-btn" data-filter="vision">Computer Vision</button>
+          <button class="filter-btn" data-filter="fullstack">Full-Stack & AI</button>
         </div>
 
-        <div class="form-group">
-          <label>MESSAGE SUBJECT</label>
-          <input type="text" class="form-control" placeholder="Internship Opportunity / AI Collaboration" required>
+        <!-- Projects Grid -->
+        <div class="projects-grid">
+
+          <!-- Project 1: ESP32 Voice Assistant Robot -->
+          <div class="glass-panel project-card reveal-on-scroll" data-category="hardware">
+            <div class="card-top">
+              <div class="project-badge-row">
+                <span class="badge-tag tag-hardware">Embedded AI · Hardware</span>
+                <span class="project-status-live"><span class="live-dot"></span> Functional Prototype</span>
+              </div>
+              <h3 class="project-title">AI-Powered Voice Assistant Robot</h3>
+              <p class="project-desc">
+                Standalone, hands-free hardware AI robot on ESP32 bridging embedded electronics with cloud LLMs for natural conversation and animated emotional expression.
+              </p>
+              <ul class="project-highlights-list">
+                <li>End-to-end signal pipeline: captures audio via I2S MEMS mic, streams over WiFi to Python Flask STT backend.</li>
+                <li>Ultra-low latency reasoning via Meta Llama 3.3 70B (Groq API) augmented with live Tavily web retrieval.</li>
+                <li>Reactive 128x64 OLED displaying animated facial expressions synchronized to user speech states.</li>
+                <li>Resolved hardware RAM buffering constraints, I2S clock conflict, and display-induced signal EMI.</li>
+              </ul>
+            </div>
+            <div class="card-bottom">
+              <div class="project-tech-chips">
+                <span class="project-tech-chip">ESP32</span>
+                <span class="project-tech-chip">I2S Audio</span>
+                <span class="project-tech-chip">Groq Llama 3.3 70B</span>
+                <span class="project-tech-chip">Python Flask</span>
+                <span class="project-tech-chip">Tavily Search</span>
+                <span class="project-tech-chip">MAX98357A</span>
+              </div>
+              <div class="project-cta-row">
+                <button class="btn-card-sim" onclick="openModal('voice-robot')">
+                  <i data-lucide="cpu" style="width:15px;height:15px;"></i>
+                  <span>Architecture Specs</span>
+                </button>
+                <button class="btn-card-live" onclick="openModal('voice-robot')">
+                  <span>Explore Robot</span>
+                  <i data-lucide="arrow-up-right" style="width:15px;height:15px;"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: ResumeAI -->
+          <div class="glass-panel project-card reveal-on-scroll" data-category="fullstack">
+            <div class="card-top">
+              <div class="project-badge-row">
+                <span class="badge-tag tag-fullstack">Generative AI · Privacy</span>
+                <span class="project-status-live"><span class="live-dot"></span> Live on Vercel</span>
+              </div>
+              <h3 class="project-title">ResumeAI: Client-Side Career Coach</h3>
+              <p class="project-desc">
+                Privacy-first, browser-based AI resume analysis platform that parses PDF, DOCX, and TXT files entirely on the client side with zero server data storage.
+              </p>
+              <ul class="project-highlights-list">
+                <li>Integrates Google Gemini API for multi-dimensional ATS scoring and severity-graded vulnerability detection.</li>
+                <li>Interactive AI career co-pilot generating STAR-formatted bullet points and custom interview questions.</li>
+                <li>Resilient API client with exponential backoff, rate-limit recovery, and browser storage persistence.</li>
+                <li>Zero backend infrastructure required — maximum privacy protection for job seekers.</li>
+              </ul>
+            </div>
+            <div class="card-bottom">
+              <div class="project-tech-chips">
+                <span class="project-tech-chip">Google Gemini API</span>
+                <span class="project-tech-chip">Vanilla JS</span>
+                <span class="project-tech-chip">PDF.js</span>
+                <span class="project-tech-chip">CSS3 Glass</span>
+                <span class="project-tech-chip">Vercel</span>
+              </div>
+              <div class="project-cta-row">
+                <button class="btn-card-sim" onclick="openModal('resume-ai')">
+                  <i data-lucide="sparkles" style="width:15px;height:15px;"></i>
+                  <span>ATS Demo View</span>
+                </button>
+                <a href="https://resume-analyser-system-qvpx.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-card-live">
+                  <span>Launch Live App</span>
+                  <i data-lucide="external-link" style="width:15px;height:15px;"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: Suraksha Yatra -->
+          <div class="glass-panel project-card reveal-on-scroll" data-category="fullstack">
+            <div class="card-top">
+              <div class="project-badge-row">
+                <span class="badge-tag tag-fullstack">Civic Tech · GIS</span>
+                <span class="project-status-live"><span class="live-dot"></span> Live on Vercel (SIH)</span>
+              </div>
+              <h3 class="project-title">Suraksha Yatra: Tourist Safety Network</h3>
+              <p class="project-desc">
+                Smart tourist safety platform integrating live emergency response, geospatial tracking, and verified facility routing into a unified web application.
+              </p>
+              <ul class="project-highlights-list">
+                <li>One-tap SOS alerts with live GPS coordinates, dynamic QR-based Digital Tourist IDs, and incident escalation.</li>
+                <li>Interactive safety mapping covering 986 tourist destinations across 34 states/UTs and 373 districts.</li>
+                <li>Nationwide emergency facility directory with 165 verified hospitals, police kiosks, and emergency stations.</li>
+                <li>Admin dispatcher dashboard backed by PostgreSQL with row-level security and real-time state synchronization.</li>
+              </ul>
+            </div>
+            <div class="card-bottom">
+              <div class="project-tech-chips">
+                <span class="project-tech-chip">React</span>
+                <span class="project-tech-chip">TypeScript</span>
+                <span class="project-tech-chip">Tailwind CSS</span>
+                <span class="project-tech-chip">Leaflet GIS</span>
+                <span class="project-tech-chip">PostgreSQL</span>
+              </div>
+              <div class="project-cta-row">
+                <button class="btn-card-sim" onclick="openModal('suraksha')">
+                  <i data-lucide="shield" style="width:15px;height:15px;"></i>
+                  <span>Safety Network</span>
+                </button>
+                <a href="https://sihi-037-sih-project-tourism-suraks.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-card-live">
+                  <span>Launch Live App</span>
+                  <i data-lucide="external-link" style="width:15px;height:15px;"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4: SmartBus 360 -->
+          <div class="glass-panel project-card reveal-on-scroll" data-category="fullstack">
+            <div class="card-top">
+              <div class="project-badge-row">
+                <span class="badge-tag tag-fullstack">Smart Mobility · IoT</span>
+                <span class="project-status-live"><span class="live-dot"></span> Live on Vercel</span>
+              </div>
+              <h3 class="project-title">SmartBus 360: Next-Gen Mobility</h3>
+              <p class="project-desc">
+                Lightweight, smartphone-based Intelligent Transport System designed to modernize public transit in tier-2/3 cities and rural corridors without costly hardware.
+              </p>
+              <ul class="project-highlights-list">
+                <li>Commuters access live 3D satellite tracking, sub-minute arrival ETAs, and cashless ticketing via UPI / digital wallets.</li>
+                <li>Conductor interface automates fare calculations, issues instant digital passes, and broadcasts live telemetry.</li>
+                <li>Transit authority dashboard displaying ridership demand curves and schedule reliability metrics.</li>
+              </ul>
+            </div>
+            <div class="card-bottom">
+              <div class="project-tech-chips">
+                <span class="project-tech-chip">JavaScript</span>
+                <span class="project-tech-chip">GIS Satellite Map</span>
+                <span class="project-tech-chip">UPI Payment Sim</span>
+                <span class="project-tech-chip">Vercel</span>
+              </div>
+              <div class="project-cta-row">
+                <button class="btn-card-sim" onclick="openModal('smartbus')">
+                  <i data-lucide="map-pin" style="width:15px;height:15px;"></i>
+                  <span>Transit View</span>
+                </button>
+                <a href="https://smart-rural-bus-tracking-system.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-card-live">
+                  <span>Launch Live App</span>
+                  <i data-lucide="external-link" style="width:15px;height:15px;"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5: Smart Attendance & Emotion Analytics -->
+          <div class="glass-panel project-card reveal-on-scroll" data-category="vision">
+            <div class="card-top">
+              <div class="project-badge-row">
+                <span class="badge-tag tag-ai">Computer Vision · ML</span>
+                <span class="project-status-live"><span class="live-dot"></span> Deployed Intern Project</span>
+              </div>
+              <h3 class="project-title">Smart Attendance & Emotion Analytics</h3>
+              <p class="project-desc">
+                Full-stack biometric attendance and 7-class facial emotion analytics system engineered to operate 100% offline on standard CPU hardware without GPU acceleration.
+              </p>
+              <ul class="project-highlights-list">
+                <li>Evaluated across 1,350 benchmark frames: achieved <strong>94.73% precision</strong>, 93.26% recall, and 93.99% F1-score for face recognition.</li>
+                <li>7-class emotion classification running at <strong>20.5 FPS</strong> on an Intel Core i5 11th Gen CPU.</li>
+                <li>CLAHE preprocessing ensures robust identification under variable classroom lighting conditions.</li>
+                <li>5-frame consecutive recognition filter virtually eliminates false attendance triggers.</li>
+              </ul>
+            </div>
+            <div class="card-bottom">
+              <div class="project-tech-chips">
+                <span class="project-tech-chip">Python</span>
+                <span class="project-tech-chip">OpenCV</span>
+                <span class="project-tech-chip">FER2013 CNN</span>
+                <span class="project-tech-chip">LBPH</span>
+                <span class="project-tech-chip">Flask</span>
+                <span class="project-tech-chip">SQLite</span>
+              </div>
+              <div class="project-cta-row">
+                <button class="btn-card-sim" onclick="openModal('attendance')">
+                  <i data-lucide="bar-chart-2" style="width:15px;height:15px;"></i>
+                  <span>Metrics & Pipeline</span>
+                </button>
+                <button class="btn-card-live" onclick="openModal('attendance')">
+                  <span>Inspect System</span>
+                  <i data-lucide="arrow-up-right" style="width:15px;height:15px;"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 6: LearnPath -->
+          <div class="glass-panel project-card reveal-on-scroll" data-category="fullstack">
+            <div class="card-top">
+              <div class="project-badge-row">
+                <span class="badge-tag tag-fullstack">EdTech · Full-Stack</span>
+                <span class="project-status-live"><span class="live-dot"></span> Production Ready</span>
+              </div>
+              <h3 class="project-title">LearnPath: Adaptive Learning Platform</h3>
+              <p class="project-desc">
+                Full-stack adaptive e-learning environment with automated skill-stage advancement, in-browser code compilation, and analytics dashboards.
+              </p>
+              <ul class="project-highlights-list">
+                <li>Dynamic learner profiling categorizing curated curriculum into Beginner, Intermediate, and Expert tracks.</li>
+                <li>Multi-language online compiler supporting Python, C, C++, Java, and JavaScript.</li>
+                <li>Weekly auto-generated quizzes with instant grading, streak tracking, and autosaving persistent notepad.</li>
+              </ul>
+            </div>
+            <div class="card-bottom">
+              <div class="project-tech-chips">
+                <span class="project-tech-chip">Python Flask</span>
+                <span class="project-tech-chip">SQLite</span>
+                <span class="project-tech-chip">Online Compiler</span>
+                <span class="project-tech-chip">HTML5 / JS</span>
+              </div>
+              <div class="project-cta-row">
+                <button class="btn-card-sim" onclick="openModal('learnpath')">
+                  <i data-lucide="book-open" style="width:15px;height:15px;"></i>
+                  <span>Course Architecture</span>
+                </button>
+                <button class="btn-card-live" onclick="openModal('learnpath')">
+                  <span>Inspect Platform</span>
+                  <i data-lucide="arrow-up-right" style="width:15px;height:15px;"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
         </div>
-
-        <div class="form-group">
-          <label>MESSAGE CONTENT</label>
-          <textarea class="form-control" placeholder="Write your message here..." required></textarea>
-        </div>
-
-        <button type="submit" class="btn-cyber-primary" style="width:100%; justify-content:center;">
-          <i class="lucide-send"></i> SEND TRANSMISSION
-        </button>
-      </form>
-    </div>
-  </section>
-
-  <!-- Interactive AI Terminal Drawer (SP-OS v2.0) -->
-  <div id="terminal-drawer">
-    <div class="terminal-header">
-      <div class="terminal-dots">
-        <span class="t-dot t-red"></span>
-        <span class="t-dot t-yellow"></span>
-        <span class="t-dot t-green"></span>
       </div>
-      <div class="terminal-title">SARAVAN_AI_TERMINAL_INTERFACE [SP-OS v2.0]</div>
-      <button class="terminal-close">&times;</button>
-    </div>
+    </section>
 
-    <div class="preset-chips">
-      <button class="chip-btn" data-cmd="help">help</button>
-      <button class="chip-btn" data-cmd="whoami">whoami</button>
-      <button class="chip-btn" data-cmd="skills">skills</button>
-      <button class="chip-btn" data-cmd="projects">projects</button>
-      <button class="chip-btn" data-cmd="awards">awards</button>
-      <button class="chip-btn" data-cmd="contact">contact</button>
-      <button class="chip-btn" data-cmd="github">github</button>
-      <button class="chip-btn" data-cmd="linkedin">linkedin</button>
-      <button class="chip-btn" data-cmd="clear">clear</button>
-    </div>
+    <!-- TESTIMONIALS & ENDORSEMENTS SECTION -->
+    <section id="testimonials">
+      <div class="section-container">
+        <div class="section-header reveal-on-scroll">
+          <div class="section-tag">
+            <i data-lucide="message-square" style="width:13px;height:13px;"></i>
+            <span>Evaluations & Endorsements</span>
+          </div>
+          <h2 class="section-title">What Mentors & Peers Say</h2>
+          <p class="section-subtitle">
+            Feedback on execution speed, hardware-software integration precision, and architectural discipline.
+          </p>
+        </div>
 
-    <div class="terminal-body">
-      Welcome to Saravan Prasanna's Interactive AI Terminal.
-      Type '<span style="color:var(--cyan)">help</span>' to list available commands.
-    </div>
+        <div class="testimonials-grid">
+          <!-- Card 1 -->
+          <div class="glass-panel testimonial-card reveal-on-scroll">
+            <div class="quote-mark">“</div>
+            <p class="testimonial-quote">
+              Saravan's ability to run facial recognition and emotion classification at over 20 FPS on pure CPU hardware is exceptional. His understanding of CLAHE preprocessing and pipeline bottlenecks is well beyond typical college-level engineering.
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">NS</div>
+              <div class="author-info">
+                <span class="author-name">Technical Lead</span>
+                <span class="author-role">Machine Learning Division · Nxtsync</span>
+              </div>
+            </div>
+          </div>
 
-    <div class="terminal-input-row">
-      <span class="terminal-prompt">guest@saravan-os:~$</span>
-      <input type="text" id="terminal-input" placeholder="Type a command (e.g. skills, projects, github, linkedin)...">
+          <!-- Card 2 -->
+          <div class="glass-panel testimonial-card reveal-on-scroll">
+            <div class="quote-mark">“</div>
+            <p class="testimonial-quote">
+              During the Smart India Hackathon internal reviews, Saravan demonstrated rare full-spectrum fluency: linking real-time Leaflet GIS mapping with live GPS streaming and secure PostgreSQL database layers without missing a beat.
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">SI</div>
+              <div class="author-info">
+                <span class="author-name">Hackathon Faculty Mentor</span>
+                <span class="author-role">AI & Data Science Department · VSB</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="glass-panel testimonial-card reveal-on-scroll">
+            <div class="quote-mark">“</div>
+            <p class="testimonial-quote">
+              Watching him debug I2S clock conflicts and RAM buffer limitations on the ESP32 voice robot in real time showed true hardware tenacity. He doesn't just write scripts; he builds real devices that communicate smoothly.
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">EC</div>
+              <div class="author-info">
+                <span class="author-name">Electronics Club Convenor</span>
+                <span class="author-role">Inter-Collegiate Innovation Catalyst</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS & AWARDS SECTION -->
+    <section id="achievements">
+      <div class="section-container">
+        <div class="section-header reveal-on-scroll">
+          <div class="section-tag">
+            <i data-lucide="award" style="width:13px;height:13px;"></i>
+            <span>Competitive Distinctions</span>
+          </div>
+          <h2 class="section-title">Honors & Hackathon Victories</h2>
+          <p class="section-subtitle">
+            Proven track record solving algorithmic challenges, pitching technical innovations, and prototyping under strict deadlines.
+          </p>
+        </div>
+
+        <div class="awards-grid">
+          <!-- Award 1 -->
+          <div class="glass-panel award-card reveal-on-scroll">
+            <div class="award-top">
+              <span class="award-badge-pill badge-gold">1st Place · Champion</span>
+              <i data-lucide="trophy" style="width:20px;height:20px;color:#D97706;"></i>
+            </div>
+            <h3 class="award-title">Ideathon Winner</h3>
+            <span class="award-event">Inter-Collegiate Technical Fest</span>
+            <p class="award-desc">
+              Awarded First Place for conceptualizing, architecting, and pitching a high-impact embedded AI solution to an executive jury of industry leaders.
+            </p>
+          </div>
+
+          <!-- Award 2 -->
+          <div class="glass-panel award-card reveal-on-scroll">
+            <div class="award-top">
+              <span class="award-badge-pill badge-silver">3rd Place · Regional</span>
+              <i data-lucide="code" style="width:20px;height:20px;color:var(--accent-violet);"></i>
+            </div>
+            <h3 class="award-title">Code Debugging Contest</h3>
+            <span class="award-event">Inter-Collegiate Coding Championship</span>
+            <p class="award-desc">
+              Secured Third Place by diagnosing and rectifying deep runtime faults, logic bottlenecks, and memory race conditions under aggressive time constraints.
+            </p>
+          </div>
+
+          <!-- Award 3 -->
+          <div class="glass-panel award-card reveal-on-scroll">
+            <div class="award-top">
+              <span class="award-badge-pill badge-bronze">3rd Place · Regional</span>
+              <i data-lucide="palette" style="width:20px;height:20px;color:#E11D48;"></i>
+            </div>
+            <h3 class="award-title">Web Design Competition</h3>
+            <span class="award-event">GIT Institution, Kottayam</span>
+            <p class="award-desc">
+              Earned Third Place for designing a responsive, human-centric web application combining modern visual hierarchy with accessible interaction design.
+            </p>
+          </div>
+
+          <!-- Award 4 -->
+          <div class="glass-panel award-card reveal-on-scroll">
+            <div class="award-top">
+              <span class="award-badge-pill badge-silver">Participant Distinction</span>
+              <i data-lucide="sparkles" style="width:20px;height:20px;color:var(--accent-violet);"></i>
+            </div>
+            <h3 class="award-title">Project Expo Finalist</h3>
+            <span class="award-event">First-Year Technical Showcase</span>
+            <p class="award-desc">
+              Selected to demonstrate a working hardware-software prototype to industry guests, explaining circuit schematics and ML inference pipelines.
+            </p>
+          </div>
+
+          <!-- Award 5 -->
+          <div class="glass-panel award-card reveal-on-scroll">
+            <div class="award-top">
+              <span class="award-badge-pill badge-gold">Special Recognition</span>
+              <i data-lucide="cpu" style="width:20px;height:20px;color:#D97706;"></i>
+            </div>
+            <h3 class="award-title">Innovation Catalyst Award</h3>
+            <span class="award-event">Electronics Club Annual Contest</span>
+            <p class="award-desc">
+              Recognized for outstanding technical ingenuity and practical integration of Artificial Intelligence with microcontroller hardware.
+            </p>
+          </div>
+
+          <!-- Award 6 -->
+          <div class="glass-panel award-card reveal-on-scroll">
+            <div class="award-top">
+              <span class="award-badge-pill badge-bronze">6-Hour Sprint</span>
+              <i data-lucide="clock" style="width:20px;height:20px;color:#E11D48;"></i>
+            </div>
+            <h3 class="award-title">Sparkathon-6hrs Hackathon</h3>
+            <span class="award-event">Intensive IoT Hackathon</span>
+            <p class="award-desc">
+              Collaborated under a non-stop 6-hour sprint to build, verify, and present a practical IoT-driven concept with functional real-time sensor loops.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION (FLOATING GLASS FORM) -->
+    <section id="contact">
+      <div class="section-container">
+        <div class="section-header reveal-on-scroll">
+          <div class="section-tag">
+            <i data-lucide="send" style="width:13px;height:13px;"></i>
+            <span>Direct Transmission</span>
+          </div>
+          <h2 class="section-title">Let’s Build the Next Generation</h2>
+          <p class="section-subtitle">
+            Seeking opportunities to intern, collaborate on edge AI hardware, or build high-throughput full-stack products.
+          </p>
+        </div>
+
+        <div class="contact-layout">
+          <!-- Contact Details Panel -->
+          <div class="glass-panel contact-info-panel reveal-on-scroll">
+            <h3 class="contact-info-title">Connect Directly</h3>
+            <p class="contact-info-desc">
+              Whether you are an engineering team looking for a proactive AI/IoT intern or have questions regarding my project architectures, feel free to reach out.
+            </p>
+
+            <div class="contact-channels">
+              <a href="mailto:saravanprasanna.10@gmail.com" class="channel-item">
+                <div class="channel-icon">
+                  <i data-lucide="mail" style="width:20px;height:20px;"></i>
+                </div>
+                <div class="channel-text">
+                  <span class="channel-lbl">Official Email</span>
+                  <span class="channel-val">saravanprasanna.10@gmail.com</span>
+                </div>
+              </a>
+
+              <a href="tel:+918015281343" class="channel-item">
+                <div class="channel-icon">
+                  <i data-lucide="phone" style="width:20px;height:20px;"></i>
+                </div>
+                <div class="channel-text">
+                  <span class="channel-lbl">Phone / WhatsApp</span>
+                  <span class="channel-val">+91 80152 81343</span>
+                </div>
+              </a>
+
+              <div class="channel-item">
+                <div class="channel-icon">
+                  <i data-lucide="map-pin" style="width:20px;height:20px;"></i>
+                </div>
+                <div class="channel-text">
+                  <span class="channel-lbl">Location</span>
+                  <span class="channel-val">Gandhi Maanagar, Peelamedu, Coimbatore</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Social Action Pills -->
+            <div style="display:flex;gap:12px;margin-top:10px;">
+              <a href="https://www.linkedin.com/in/saravan-prasanna-k-u-a9b0723b2/" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill-ghost" style="flex:1;justify-content:center;">
+                <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:currentColor;"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                <span>LinkedIn</span>
+              </a>
+              <a href="https://github.com/wamender007-sara" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill-ghost" style="flex:1;justify-content:center;">
+                <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:currentColor;"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                <span>GitHub</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Floating Glass Form -->
+          <div class="glass-panel contact-form-panel reveal-on-scroll">
+            <form id="contact-form" onsubmit="handleFormSubmit(event)">
+              <div class="form-group">
+                <label for="contact-name" class="form-label">Full Name or Organization *</label>
+                <input type="text" id="contact-name" name="name" class="form-input" placeholder="e.g. Dr. Jane Smith / Tech Hiring Lead" required>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-email" class="form-label">Email Address *</label>
+                <input type="email" id="contact-email" name="email" class="form-input" placeholder="you@company.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-subject" class="form-label">Subject / Purpose</label>
+                <input type="text" id="contact-subject" name="_subject" class="form-input" placeholder="Internship Opportunity / Project Collaboration">
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message" class="form-label">Message *</label>
+                <textarea id="contact-message" name="message" class="form-textarea" placeholder="Describe the opportunity, role specifications, or project inquiry..." required></textarea>
+              </div>
+
+              <button type="submit" id="submit-btn" class="btn-submit-form">
+                <span id="submit-btn-text">Transmit Message</span>
+                <i data-lucide="send" id="submit-btn-icon" style="width:17px;height:17px;"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL FOR PROJECT DEEP DIVES -->
+  <div id="project-modal" class="modal-overlay" onclick="handleModalBackdropClick(event)">
+    <div class="modal-window">
+      <div class="modal-header">
+        <h3 id="modal-title" class="modal-header-title">Project Architecture</h3>
+        <button class="modal-close-btn" onclick="closeModal()">&times;</button>
+      </div>
+      <div id="modal-content" class="modal-body">
+        <!-- Injected via JavaScript -->
+      </div>
     </div>
   </div>
 
-  <!-- Modal Backdrop for Deep Dive Specs -->
-  <div id="modal-backdrop" class="modal-backdrop">
-    <div class="glass-panel modal-content">
-      <button class="modal-close-btn">&times;</button>
-      <h2 id="modal-title" style="font-family:var(--font-heading); color:var(--cyan); margin-bottom:16px;">
-        Project Deep Dive
-      </h2>
-      <div id="modal-body-content" style="color:var(--text-muted); line-height:1.7;">
-        Modal content goes here...
-      </div>
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="toast-msg">
+    <div style="width:32px;height:32px;border-radius:50%;background:#10B981;display:flex;align-items:center;justify-content:center;color:#FFF;">
+      <i data-lucide="check" style="width:18px;height:18px;"></i>
+    </div>
+    <div style="display:flex;flex-direction:column;">
+      <span style="font-weight:700;font-size:0.9rem;color:var(--text-primary);" id="toast-title">Message Transmitted</span>
+      <span style="font-size:0.8rem;color:var(--text-muted);" id="toast-desc">Thank you! I will respond promptly within 24 hours.</span>
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-text">
-        © 2026 <strong>Saravan Prasanna</strong> — AI Engineer Portfolio. Designed with ⚡ Three.js & Cyber Glassmorphic Aesthetics.
+  <!-- SITE FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <span class="footer-brand-title">SARAVAN PRASANNA</span>
+        <span class="footer-tagline">AI Engineer · Autonomous Systems Specialist · VSB Technical Campus</span>
       </div>
 
-      <!-- Quick Social Icons in Footer -->
-      <div style="display:flex; gap:12px; align-items:center;">
-        <a href="https://www.linkedin.com/in/saravan-prasanna-k-u-a9b0723b2/" target="_blank" class="social-icon-btn linkedin-btn" title="LinkedIn Profile">
-          <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-        </a>
-
-        <a href="https://github.com/wamender007-sara" target="_blank" class="social-icon-btn github-btn" title="GitHub Profile">
-          <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
-        </a>
-
-        <a href="#hero" class="back-to-top" title="Back to Top">
-          <i class="lucide-arrow-up"></i>
-        </a>
+      <div class="footer-links">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a href="assets/Saravan_Prasanna_Resume.pdf" download="Saravan_Prasanna_Resume.pdf">Resume</a>
       </div>
+
+      <a href="#hero" class="footer-back-to-top">
+        <span>Top of Page</span>
+        <i data-lucide="arrow-up" style="width:14px;height:14px;"></i>
+      </a>
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- Main JavaScript File -->
   <script src="assets/app.js"></script>
-  <script>
-    lucide.createIcons();
-  </script>
 </body>
 </html>
