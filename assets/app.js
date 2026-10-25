@@ -407,6 +407,59 @@ const modalData = {
       </div>
     `
   },
+    'prompt-optimizer': {
+    title: 'PromptOptimizer: Multi-Platform Prompt Compiler & Synthesizer',
+    badge: 'React 18 · TypeScript · Vite 6 · Express · Compiler Architecture',
+    content: `
+      <div style="display:flex;flex-direction:column;gap:18px;">
+        <div style="padding:14px 18px;background:rgba(14,165,233,0.08);border:1px solid rgba(14,165,233,0.22);border-radius:12px;display:flex;align-items:center;gap:12px;">
+          <div style="font-size:1.5rem;line-height:1;">⚡</div>
+          <div>
+            <div style="font-weight:700;font-size:0.95rem;color:#0369a1;">Multi-Platform Prompt Compilation &amp; Conflict Arbitration</div>
+            <div style="font-size:0.85rem;color:#0284c7;margin-top:2px;">Eliminates prompt fragmentation across ChatGPT, Claude, Gemini, DeepSeek, Cursor, and Perplexity by treating prompt engineering as a first-class compilation problem.</div>
+          </div>
+        </div>
+
+        <p style="font-size:0.95rem;color:var(--text-secondary);line-height:1.7;">
+          Modern AI engineering workflows suffer from prompt divergence: maintaining separate, contradictory prompt files for different LLMs wastes tokens, increases API spend, and produces inconsistent outputs. PromptOptimizer accepts up to 7 platform-specific prompts simultaneously, strips boilerplate, arbitrates conflicts, and compiles one definitive Master Prompt.
+        </p>
+
+        <!-- KPI Metrics Grid -->
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+          <div style="padding:14px;background:rgba(241,245,249,0.8);border-radius:12px;text-align:center;">
+            <div style="font-weight:700;font-size:1.2rem;color:var(--accent-violet);">80%</div>
+            <div style="font-size:0.75rem;color:var(--text-muted);">Token Reduction</div>
+          </div>
+          <div style="padding:14px;background:rgba(241,245,249,0.8);border-radius:12px;text-align:center;">
+            <div style="font-weight:700;font-size:1.2rem;color:#0284C7;">7 AI Engines</div>
+            <div style="font-size:0.75rem;color:var(--text-muted);">Multi-Platform Input</div>
+          </div>
+          <div style="padding:14px;background:rgba(241,245,249,0.8);border-radius:12px;text-align:center;">
+            <div style="font-weight:700;font-size:1.2rem;color:#059669;">6 Modes</div>
+            <div style="font-size:0.75rem;color:var(--text-muted);">Tunable Compression</div>
+          </div>
+        </div>
+
+        <h4 style="font-family:var(--font-heading);font-size:1.1rem;color:var(--text-primary);margin-top:6px;">Core Architectural Innovations</h4>
+        <ul style="padding-left:20px;font-size:0.9rem;color:var(--text-secondary);line-height:1.7;">
+          <li><strong>Deterministic 3-Strategy Arbitration:</strong> Strictest Rule (strict requirements win over lenient ones), Hybrid Compromise (adapter contract envelopes), and Schema Harmonization (converting verbose explanations into dense tables/JSDoc).</li>
+          <li><strong>Fluff Detection &amp; Token Purging:</strong> 9 compiled regex rules purge persona boilerplate ("Act as an award-winning 10x engineer..."), polite filler ("kindly / feel free"), and generic disclaimers.</li>
+          <li><strong>Write-Time Token Economics:</strong> Per-keystroke animated progress bar with 3 color tiers (Lean &lt;500 tok, Medium 500-1499, Heavy 1500+) and live cost estimation in Indian Rupees (₹26 per million tokens).</li>
+          <li><strong>5 Built-in Domain Knowledge Bases:</strong> Automatic keyword-based domain detection for TypeScript Refactoring, Financial Earnings (10-Q/GAAP), SQL DBA Query Optimization, Support Ticket Triage, and Sci-Fi Worldbuilding.</li>
+          <li><strong>Dual-Path Hybrid Execution:</strong> Server-side Express/TypeScript API for online LLM synthesis, backed by a zero-dependency offline client compiler engine in <code>compiler.ts</code>.</li>
+        </ul>
+
+        <div style="display:flex;gap:12px;margin-top:10px;flex-wrap:wrap;">
+          <a href="https://prompt-optimizer-saravan1.vercel.app/" target="_blank" rel="noopener" class="btn-pill btn-pill-holo">
+            <span>Launch Live PromptOptimizer</span>
+          </a>
+          <a href="https://github.com/wamender007-sara/Prompt_Optimizer" target="_blank" rel="noopener" class="btn-pill btn-pill-ghost">
+            <span>View GitHub Repository</span>
+          </a>
+        </div>
+      </div>
+    `
+  },
   'voice-robot': {
     title: 'AI-Powered Voice Assistant Robot (ESP32)',
     badge: 'Embedded AI · Hardware Pipeline',
