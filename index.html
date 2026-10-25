@@ -115,7 +115,7 @@
               </div>
               <div class="metric-divider"></div>
               <div class="metric-item">
-                <span class="metric-val">6<span class="highlight">+</span></span>
+                <span class="metric-val">7<span class="highlight">+</span></span>
                 <span class="metric-lbl">Live Systems</span>
               </div>
             </div>
@@ -268,7 +268,7 @@
                 </div>
               </div>
               <p class="narrative-text">
-                I build software that serves human lives. From <strong>Suraksha Yatra</strong> (smart tourist safety mapping across 986 destinations) to <strong>SmartBus 360</strong> (3D transit tracking and automated ticketing for rural cities) and <strong>ResumeAI</strong> (privacy-preserving client-side career co-pilot).
+                I build software that serves human lives. From <strong>SiteSentinel</strong> (autonomous web reliability & accessibility sentry with multimodal LLM triage) to <strong>ResumeAI</strong> (adopted by college placement cell for evaluating final-year students' resumes), <strong>Suraksha Yatra</strong> (smart tourist safety across 986 destinations), and <strong>SmartBus 360</strong>.
               </p>
               <div class="journey-tags">
                 <span class="journey-tag">Smart Public Transit</span>
@@ -480,7 +480,7 @@
 
         <!-- Filter Pills -->
         <div class="project-filters reveal-on-scroll">
-          <button class="filter-btn active" data-filter="all">All Systems (6)</button>
+          <button class="filter-btn active" data-filter="all">All Systems (7)</button>
           <button class="filter-btn" data-filter="hardware">Embedded & IoT</button>
           <button class="filter-btn" data-filter="vision">Computer Vision</button>
           <button class="filter-btn" data-filter="fullstack">Full-Stack & AI</button>
@@ -489,7 +489,55 @@
         <!-- Projects Grid -->
         <div class="projects-grid">
 
-          <!-- Project 1: ESP32 Voice Assistant Robot -->
+          <!-- Project 1: SiteSentinel -->
+          <div class="glass-panel project-card reveal-on-scroll" data-category="fullstack">
+            <div class="card-top">
+              <div class="project-badge-row">
+                <span class="badge-tag tag-fullstack">Autonomous Systems · SRE</span>
+                <span class="badge-tag" style="background:rgba(99,102,241,0.12);color:#4f46e5;border:1px solid rgba(99,102,241,0.25);font-size:0.75rem;padding:3px 8px;border-radius:12px;font-weight:600;"><i data-lucide="shield-check" style="width:12px;height:12px;display:inline-block;vertical-align:-2px;margin-right:3px;"></i>Multimodal LLM Triage</span>
+                <span class="project-status-live"><span class="live-dot"></span> Live on Vercel</span>
+              </div>
+              <h3 class="project-title">SiteSentinel: Autonomous Web Quality &amp; Reliability Sentry</h3>
+              <p class="project-desc">
+                Production-ready autonomous site reliability sentinel that mimics human browsing to passively detect, diagnose, and report objective software flaws, WCAG 2.1 AA accessibility regressions, and runtime exceptions on live web targets.
+              </p>
+              <ul class="project-highlights-list">
+                <li><strong>Sandboxed Headless Audit Engine:</strong> Powered by Playwright, axe-core, and Chromium on Node.js 24 to evaluate web vitals, DOM hierarchies, TTFB latency, and console exceptions under strict ethical crawling guardrails (read-only execution, robots.txt compliance, rate-limiting &ge;2,000ms).</li>
+                <li><strong>Multimodal LLM Triage (Gemini 1.5 Flash):</strong> Structured JSON schema enforcement filters 92% transient noise, generating root-cause diagnoses, confidence scores (&ge;0.70), and localized copy-paste code patches (English &amp; Tamil).</li>
+                <li><strong>7 Rules of Engagement:</strong> Strict operational guardrails including read-only requests, host allowlisting, verifiable DOM/screenshot evidence, and an operator-supervised "Rule 4 Human-in-the-Loop" gate for bug reporting.</li>
+                <li><strong>Operations Console &amp; Dispatch:</strong> Linear/Sentry-inspired Next.js 15 dashboard backed by serverless PostgreSQL (Neon) and Fastify API, with n8n workflow automation and Gmail SMTP alert routing.</li>
+              </ul>
+            </div>
+            <div class="card-bottom">
+              <div class="project-tech-chips">
+                <span class="project-tech-chip">Next.js 15</span>
+                <span class="project-tech-chip">TypeScript</span>
+                <span class="project-tech-chip">Node.js 24</span>
+                <span class="project-tech-chip">Playwright</span>
+                <span class="project-tech-chip">Gemini 1.5 Flash</span>
+                <span class="project-tech-chip">PostgreSQL (Neon)</span>
+                <span class="project-tech-chip">axe-core</span>
+                <span class="project-tech-chip">Fastify</span>
+                <span class="project-tech-chip">n8n Automation</span>
+              </div>
+              <div class="project-cta-row">
+                <button class="btn-card-sim" onclick="openModal('sitesentinel')">
+                  <i data-lucide="shield" style="width:15px;height:15px;"></i>
+                  <span>Architecture Specs</span>
+                </button>
+                <a href="https://github.com/wamender007-sara/sitesentinel" target="_blank" rel="noopener noreferrer" class="btn-card-sim" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;">
+                  <i data-lucide="github" style="width:15px;height:15px;"></i>
+                  <span>GitHub</span>
+                </a>
+                <a href="https://sitesentinel-plum.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-card-live">
+                  <span>Launch Sentry</span>
+                  <i data-lucide="external-link" style="width:15px;height:15px;"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: ESP32 Voice Assistant Robot -->
           <div class="glass-panel project-card reveal-on-scroll" data-category="hardware">
             <div class="card-top">
               <div class="project-badge-row">
@@ -529,22 +577,23 @@
             </div>
           </div>
 
-          <!-- Project 2: ResumeAI -->
+          <!-- Project 3: ResumeAI -->
           <div class="glass-panel project-card reveal-on-scroll" data-category="fullstack">
             <div class="card-top">
               <div class="project-badge-row">
                 <span class="badge-tag tag-fullstack">Generative AI · Privacy</span>
+                <span class="badge-tag" style="background:rgba(16,185,129,0.12);color:#059669;border:1px solid rgba(16,185,129,0.25);font-size:0.75rem;padding:3px 8px;border-radius:12px;font-weight:600;"><i data-lucide="award" style="width:12px;height:12px;display:inline-block;vertical-align:-2px;margin-right:3px;"></i>Adopted by College</span>
                 <span class="project-status-live"><span class="live-dot"></span> Live on Vercel</span>
               </div>
               <h3 class="project-title">ResumeAI: Client-Side Career Coach</h3>
               <p class="project-desc">
-                Privacy-first, browser-based AI resume analysis platform that parses PDF, DOCX, and TXT files entirely on the client side with zero server data storage.
+                Privacy-first AI resume analysis platform adopted by <strong>VSB College of Engineering</strong> to evaluate, audit, and benchmark final-year students' resumes during campus placement drives.
               </p>
               <ul class="project-highlights-list">
+                <li><strong>College Placement Adoption:</strong> Utilized by the college placement cell for analysing final-year students' resumes across engineering departments to maximize ATS shortlist ratios.</li>
                 <li>Integrates Google Gemini API for multi-dimensional ATS scoring and severity-graded vulnerability detection.</li>
                 <li>Interactive AI career co-pilot generating STAR-formatted bullet points and custom interview questions.</li>
-                <li>Resilient API client with exponential backoff, rate-limit recovery, and browser storage persistence.</li>
-                <li>Zero backend infrastructure required — maximum privacy protection for job seekers.</li>
+                <li>Zero backend infrastructure required — maximum privacy protection with 100% client-side document processing.</li>
               </ul>
             </div>
             <div class="card-bottom">
@@ -568,7 +617,7 @@
             </div>
           </div>
 
-          <!-- Project 3: Suraksha Yatra -->
+          <!-- Project 4: Suraksha Yatra -->
           <div class="glass-panel project-card reveal-on-scroll" data-category="fullstack">
             <div class="card-top">
               <div class="project-badge-row">
@@ -607,7 +656,7 @@
             </div>
           </div>
 
-          <!-- Project 4: SmartBus 360 -->
+          <!-- Project 5: SmartBus 360 -->
           <div class="glass-panel project-card reveal-on-scroll" data-category="fullstack">
             <div class="card-top">
               <div class="project-badge-row">
@@ -644,7 +693,7 @@
             </div>
           </div>
 
-          <!-- Project 5: Smart Attendance & Emotion Analytics -->
+          <!-- Project 6: Smart Attendance & Emotion Analytics -->
           <div class="glass-panel project-card reveal-on-scroll" data-category="vision">
             <div class="card-top">
               <div class="project-badge-row">
@@ -684,7 +733,7 @@
             </div>
           </div>
 
-          <!-- Project 6: LearnPath -->
+          <!-- Project 7: LearnPath -->
           <div class="glass-panel project-card reveal-on-scroll" data-category="fullstack">
             <div class="card-top">
               <div class="project-badge-row">

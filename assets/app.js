@@ -343,6 +343,70 @@ function playSoftChime(freq = 523.25) {
    7. INTERACTIVE MODAL SPEC SYSTEM
    -------------------------------------------------------------------------- */
 const modalData = {
+  'sitesentinel': {
+    title: 'SiteSentinel: Autonomous Web Quality & Reliability Sentry',
+    badge: 'Node.js 24 · Next.js 15 · Gemini 1.5 Flash · Playwright SRE',
+    content: `
+      <div style="display:flex;flex-direction:column;gap:18px;">
+        <div style="padding:14px 18px;background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.22);border-radius:12px;display:flex;align-items:center;gap:12px;">
+          <div style="font-size:1.5rem;line-height:1;">🛡️</div>
+          <div>
+            <div style="font-weight:700;font-size:0.95rem;color:#4338ca;">Production-Grade Autonomous SRE &amp; A11y Sentry</div>
+            <div style="font-size:0.85rem;color:#4f46e5;margin-top:2px;">Passively traverses live production targets using sandboxed headless Chromium, diagnosing regressions, WCAG 2.1 AA flaws, and synthesizing code patches via Gemini 1.5 Flash.</div>
+          </div>
+        </div>
+
+        <p style="font-size:0.95rem;color:var(--text-secondary);line-height:1.7;">
+          Engineered on Node.js 24 and TypeScript, SiteSentinel solves the critical testing–production divergence gap. While conventional CI/CD tests only validate staging, SiteSentinel mimics human browsing to actively detect runtime anomalies, content drift, and third-party script mutations on live production endpoints without manual intervention.
+        </p>
+
+        <!-- KPI Metrics Grid -->
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+          <div style="padding:14px;background:rgba(241,245,249,0.8);border-radius:12px;text-align:center;">
+            <div style="font-weight:700;font-size:1.2rem;color:var(--accent-violet);">92%</div>
+            <div style="font-size:0.75rem;color:var(--text-muted);">Noise Reduction</div>
+          </div>
+          <div style="padding:14px;background:rgba(241,245,249,0.8);border-radius:12px;text-align:center;">
+            <div style="font-weight:700;font-size:1.2rem;color:#0284C7;">&lt; 1 sec</div>
+            <div style="font-size:0.75rem;color:var(--text-muted);">AI Triage Speed</div>
+          </div>
+          <div style="padding:14px;background:rgba(241,245,249,0.8);border-radius:12px;text-align:center;">
+            <div style="font-weight:700;font-size:1.2rem;color:#059669;">0%</div>
+            <div style="font-size:0.75rem;color:var(--text-muted);">False Disruption</div>
+          </div>
+        </div>
+
+        <h4 style="font-family:var(--font-heading);font-size:1.1rem;color:var(--text-primary);margin-top:6px;">Subsystem Architecture</h4>
+        <ul style="padding-left:20px;font-size:0.9rem;color:var(--text-secondary);line-height:1.7;">
+          <li><strong>Headless Audit Engine (Node.js 24 + Playwright + axe-core):</strong> Executes passive, human-like traversal to capture DOM anomalies, TTFB latency, WCAG 2.1 AA contrast failures, and console JavaScript exceptions.</li>
+          <li><strong>AI Diagnosis &amp; Triage (Gemini 1.5 Flash + Zod):</strong> Strict JSON schema enforcement filters 92% transient noise, calculates confidence scores (&ge;0.70), identifies root causes, and generates instant copy-paste code patches in English and Tamil.</li>
+          <li><strong>Serverless Time-Series Persistence:</strong> Fastify API with PostgreSQL (Neon Cloud) implementing SHA-256 defect deduplication and SLA health indexing.</li>
+          <li><strong>Operations Console (Next.js 15 + Tailwind CSS):</strong> Sentry/Linear-inspired dark UI with asymmetric KPI cards, severity ramp charts, and an interactive Review Queue studio.</li>
+          <li><strong>Event-Driven Orchestration:</strong> n8n workflow engine automating scheduled cron audits, webhook triggers, and throttled Gmail SMTP notification dispatches.</li>
+        </ul>
+
+        <h4 style="font-family:var(--font-heading);font-size:1.1rem;color:var(--text-primary);margin-top:6px;">The 7 Engineering Guardrails</h4>
+        <div style="padding:14px;background:rgba(248,250,252,0.9);border:1px solid #e2e8f0;border-radius:12px;font-size:0.85rem;color:var(--text-secondary);line-height:1.6;">
+          <strong>1. Read-Only Scanning</strong> (pure GET, zero form submission) &bull; 
+          <strong>2. Robots.txt &amp; Rate Limits</strong> (&ge;2,000ms delay) &bull; 
+          <strong>3. Strict Host Allowlisting</strong> &bull; 
+          <strong>4. Human-in-the-Loop Gate</strong> (supervised bug dispatch) &bull; 
+          <strong>5. Verifiable Evidence</strong> (exact DOM selector, stack trace &amp; screenshot) &bull; 
+          <strong>6. Zero Secret Leakage</strong> &bull; 
+          <strong>7. Modular Type-Safety</strong> (Zod runtime validation).
+        </div>
+
+        <div style="display:flex;gap:12px;margin-top:10px;flex-wrap:wrap;">
+          <a href="https://sitesentinel-plum.vercel.app/" target="_blank" rel="noopener" class="btn-pill btn-pill-holo">
+            <span>Launch Live Operations Console</span>
+          </a>
+          <a href="https://github.com/wamender007-sara/sitesentinel" target="_blank" rel="noopener" class="btn-pill btn-pill-ghost">
+            <span>View GitHub Repository</span>
+          </a>
+        </div>
+      </div>
+    `
+  },
   'voice-robot': {
     title: 'AI-Powered Voice Assistant Robot (ESP32)',
     badge: 'Embedded AI · Hardware Pipeline',
@@ -374,15 +438,24 @@ const modalData = {
   },
   'resume-ai': {
     title: 'ResumeAI: Client-Side Career Coach',
-    badge: 'Generative AI · Privacy-First',
+    badge: 'Generative AI · College Placement Deployment',
     content: `
       <div style="display:flex;flex-direction:column;gap:18px;">
+        <div style="padding:14px 18px;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.25);border-radius:12px;display:flex;align-items:center;gap:12px;">
+          <div style="font-size:1.5rem;line-height:1;">🎓</div>
+          <div>
+            <div style="font-weight:700;font-size:0.95rem;color:#065f46;">Adopted by College for Placement Readiness</div>
+            <div style="font-size:0.85rem;color:#047857;margin-top:2px;">Deployed and utilized by VSB College of Engineering Technical Campus to analyze and benchmark final-year students' resumes for campus recruitment drives.</div>
+          </div>
+        </div>
+
         <p style="font-size:0.95rem;color:var(--text-secondary);line-height:1.7;">
           ResumeAI was engineered to solve the data privacy issue inherent in online resume checkers. Candidate documents never touch a third-party application server; parsing occurs client-side using PDF.js before structured prompts query Google Gemini.
         </p>
 
         <h4 style="font-family:var(--font-heading);font-size:1.1rem;color:var(--text-primary);">Key Architectural Innovations</h4>
         <ul style="padding-left:20px;font-size:0.9rem;color:var(--text-secondary);line-height:1.7;">
+          <li><strong>Institutional Campus Impact:</strong> Evaluates batches of student profiles for ATS compliance, technical depth, formatting flaws, and role alignment.</li>
           <li><strong>Client-Side PDF/DOCX Parsing:</strong> Zero backend storage — candidates retain 100% control of their personal information.</li>
           <li><strong>Multi-Dimensional Scoring:</strong> Evaluates ATS readability, layout vulnerability, action-verb density, and role-specific keywords.</li>
           <li><strong>Conversational Co-Pilot:</strong> Interactive interview simulator with state retention across prompts using browser local storage.</li>
@@ -519,6 +592,7 @@ function initModalSystem() {
 
     document.getElementById('modal-title').textContent = data.title;
     document.getElementById('modal-content').innerHTML = data.content;
+    if (window.lucide) window.lucide.createIcons();
     document.getElementById('project-modal').classList.add('active');
     document.body.style.overflow = 'hidden';
     playSoftChime(784);
