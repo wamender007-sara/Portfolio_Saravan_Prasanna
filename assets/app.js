@@ -407,7 +407,64 @@ const modalData = {
       </div>
     `
   },
-    'prompt-optimizer': {
+      'sentinexa': {
+    title: 'Sentinexa: Autonomous Municipal Dispatch & Emergency OS',
+    badge: 'Civic Tech · Multi-Agent Dispatch · Cryptographic Spatial Verification',
+    content: `
+      <div style="display:flex;flex-direction:column;gap:18px;">
+        <div style="padding:14px 18px;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.25);border-radius:12px;display:flex;align-items:center;gap:12px;">
+          <div style="font-size:1.5rem;line-height:1;">🏛️</div>
+          <div>
+            <div style="font-weight:700;font-size:0.95rem;color:#065f46;">Active Municipal Pilot: Coimbatore &amp; Kinathukadavu Region</div>
+            <div style="font-size:0.85rem;color:#047857;margin-top:2px;">Replaces 7–14 day bureaucratic latency traps with deterministic 3.8-second dispatch, SHA-256 HMAC tamper-evident photo proof, and strict 48-hour SLA enforcement.</div>
+          </div>
+        </div>
+
+        <p style="font-size:0.95rem;color:var(--text-secondary);line-height:1.7;">
+          Municipal grievance redressal and civic distress triage in emerging urban centers suffer from landmark ambiguity, duplicate reports, and sequential bureaucratic clearinghouses. Sentinexa deploys an autonomous multi-agent architecture with hardware-level cryptographic spatial verification to dispatch actionable tickets to field engineers in under 4 seconds.
+        </p>
+
+        <!-- KPI Metrics Grid -->
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;">
+          <div style="padding:12px;background:rgba(241,245,249,0.8);border-radius:12px;text-align:center;">
+            <div style="font-weight:700;font-size:1.15rem;color:#059669;">3.8s</div>
+            <div style="font-size:0.7rem;color:var(--text-muted);">Dispatch Latency</div>
+          </div>
+          <div style="padding:12px;background:rgba(241,245,249,0.8);border-radius:12px;text-align:center;">
+            <div style="font-weight:700;font-size:1.15rem;color:var(--accent-violet);">184+</div>
+            <div style="font-size:0.7rem;color:var(--text-muted);">Resolved Tickets</div>
+          </div>
+          <div style="padding:12px;background:rgba(241,245,249,0.8);border-radius:12px;text-align:center;">
+            <div style="font-weight:700;font-size:1.15rem;color:#0284C7;">94.2%</div>
+            <div style="font-size:0.7rem;color:var(--text-muted);">48h SLA Adherence</div>
+          </div>
+          <div style="padding:12px;background:rgba(241,245,249,0.8);border-radius:12px;text-align:center;">
+            <div style="font-weight:700;font-size:1.15rem;color:#E11D48;">&lt; 3.0m</div>
+            <div style="font-size:0.7rem;color:var(--text-muted);">Emergency SOS</div>
+          </div>
+        </div>
+
+        <h4 style="font-family:var(--font-heading);font-size:1.1rem;color:var(--text-primary);margin-top:6px;">Core Architectural Pillars</h4>
+        <ul style="padding-left:20px;font-size:0.9rem;color:var(--text-secondary);line-height:1.7;">
+          <li><strong>Cryptographic Geo-Cam:</strong> Direct WebRTC hardware stream burns GPS coordinates (&plusmn;4m), district tags, and client-side SHA-256 HMAC hashes directly onto image byte arrays, preventing GPS spoofing or stale incident re-submissions.</li>
+          <li><strong>Autonomous Multi-Agent Mesh:</strong> Automatically categorizes grievances across 4 civic verticals (Road Infrastructure, Water Supply, Sanitation, and Electrical Grid) with automated SLA urgency scoring and ward boundary mapping.</li>
+          <li><strong>Real-Time n8n Webhook Gateway:</strong> Enterprise cloud workflow mesh receiving authenticated REST webhooks, formatting ticket metadata, and triggering asynchronous government SMTP notification relays to department engineers in 3.8s.</li>
+          <li><strong>48-Hour SLA &amp; Emergency SOS Triage:</strong> Automated escalation triggers if pending status exceeds 48 hours; includes integrated 108/100 emergency routing with live trauma hospital proximity and transit ETA calculation.</li>
+          <li><strong>State-Wide Scalability:</strong> Serverless architecture designed for zero-reconfiguration horizontal scaling across all 38 municipal districts of Tamil Nadu, handling 50,000+ concurrent submissions during monsoon emergencies.</li>
+        </ul>
+
+        <div style="display:flex;gap:12px;margin-top:10px;flex-wrap:wrap;">
+          <a href="https://sentinexa.vercel.app/" target="_blank" rel="noopener" class="btn-pill btn-pill-holo">
+            <span>Launch Live Sentinexa OS</span>
+          </a>
+          <a href="https://github.com/wamender007-sara/Sentinexa" target="_blank" rel="noopener" class="btn-pill btn-pill-ghost">
+            <span>View GitHub Repository</span>
+          </a>
+        </div>
+      </div>
+    `
+  },
+  'prompt-optimizer': {
     title: 'PromptOptimizer: Multi-Platform Prompt Compiler & Synthesizer',
     badge: 'React 18 · TypeScript · Vite 6 · Express · Compiler Architecture',
     content: `
