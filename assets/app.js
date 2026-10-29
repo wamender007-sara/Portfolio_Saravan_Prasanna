@@ -554,8 +554,8 @@ const modalData = {
         <div style="padding:14px 18px;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.25);border-radius:12px;display:flex;align-items:center;gap:12px;">
           <div style="font-size:1.5rem;line-height:1;">🎓</div>
           <div>
-            <div style="font-weight:700;font-size:0.95rem;color:#065f46;">Adopted by College for Placement Readiness</div>
-            <div style="font-size:0.85rem;color:#047857;margin-top:2px;">Deployed and utilized by VSB College of Engineering Technical Campus to analyze and benchmark final-year students' resumes for campus recruitment drives.</div>
+            <div style="font-weight:700;font-size:0.95rem;color:#065f46;">Commended by Vice Principal &amp; HOD · Placement Staff Adoption</div>
+            <div style="font-size:0.85rem;color:#047857;margin-top:2px;">Formally commended by the college Vice Principal and Head of Department (AI &amp; DS); deployed by placement staff across VSB College of Engineering to evaluate, benchmark, and score senior students' resumes for campus recruitment drives.</div>
           </div>
         </div>
 
